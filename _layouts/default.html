@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="auto">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,12 +8,17 @@
   <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | default: site.description }}" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
   <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   {% seo %}
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <header class="site-header modern">
+    <div class="wrap nav-bar">
+      <div class="brand">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
       <nav class="site-nav" aria-label="Главная навигация">
         <ul>
           {% for item in site.nav %}
@@ -21,17 +26,16 @@
           {% endfor %}
         </ul>
       </nav>
+      <button class="mode-toggle" id="modeToggle" aria-label="Переключить тему" title="Переключить тему">◐</button>
     </div>
   </header>
-
   <main class="site-content wrap" role="main">
     {{ content }}
   </main>
-
-  <footer class="site-footer">
+  <footer class="site-footer modern">
     <div class="wrap">
       <p>© {{ site.time | date: '%Y' }} {{ site.title }}. Неприменимо к коммерческому использованию без согласия авторов проекта.</p>
-      <p><small>Статический сайт на <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>. Исходный код: добавить ссылку позже.</small></p>
+      <p><small>Статический сайт на <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.</small></p>
     </div>
   </footer>
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
