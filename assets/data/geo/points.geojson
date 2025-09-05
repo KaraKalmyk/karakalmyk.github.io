@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Пример точка",
+        "type": "пример",
+        "years": "ок. 1900"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [78.39, 42.49]
+      }
+    }
+  ]
+}
+

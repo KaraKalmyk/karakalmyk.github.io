@@ -1,0 +1,60 @@
+title: "Сарт-калмыки Иссык-Куля"
+description: "Культурное наследие сарт-калмыков (Сарт-ойратов) у г. Каракол, Иссык-Куль, Кыргызстан"
+url: "https://karakalmyk.github.io" # корневой URL GitHub Pages организации (нижний регистр)
+baseurl: "/KaraKalmyk" # имя репозитория (для проектного сайта)
+lang: ru
+locale: ru_RU
+encoding: UTF-8
+theme: minima # можно заменить или убрать и использовать свои шаблоны
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+# (оба плагина поддерживаются GitHub Pages)
+
+# Навигационное меню (используется в header)
+nav:
+  - title: "Главная"
+    url: "/"
+  - title: "История"
+    url: "/pages/istoriya.html"
+  - title: "Язык"
+    url: "/pages/yazyk.html"
+  - title: "Фотоархив"
+    url: "/pages/fotoarhiv.html"
+  - title: "Карты"
+    url: "/pages/karty.html"
+  - title: "Устные предания"
+    url: "/pages/ustnye-predaniya.html"
+  - title: "Библиография"
+    url: "/pages/bibliografiya.html"
+  - title: "О проекте"
+    url: "/pages/o-proekte.html"
+  - title: "Контакты"
+    url: "/pages/kontakty.html"
+
+# Социальные превью
+social:
+  name: "Сарт-калмыки Иссык-Куля"
+  image: /assets/images/social-share.jpg
+  links: []
+
+# Параметры коллекций / данных при необходимости
+collections: {}
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+permalink: pretty
+# Рекомендуется указать часовой пояс
+timezone: Asia/Bishkek
+
+# Настройки билда
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+# Дополнительно можно исключить служебные IDE каталоги
+  - .idea
