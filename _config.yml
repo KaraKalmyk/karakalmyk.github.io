@@ -1,7 +1,7 @@
 title: "Сарт-калмыки Иссык-Куля"
 description: "Культурное наследие сарт-калмыков (Сарт-ойратов) у г. Каракол, Иссык-Куль, Кыргызстан"
 url: "https://karakalmyk.github.io" # корневой URL GitHub Pages организации (нижний регистр)
-baseurl: "/KaraKalmyk" # имя репозитория (для проектного сайта)
+baseurl: "" # имя репозитория (для проектного сайта)
 lang: ru
 locale: ru_RU
 encoding: UTF-8
