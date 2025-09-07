@@ -1,16 +1,120 @@
-# Черновой список фотографий для галереи
-- file: people/001.jpg
-  title: "Семейный портрет"
-  approx_date: "ок. 1930"
-  place: "Окрестности Каракола"
-  source: "Семейный архив семьи X"
-  people: ["?"]
-  notes: "Нужна идентификация людей на фото"
-- file: life/002.jpg
-  title: "Кочевье весной"
-  approx_date: "ок. 1940"
-  place: "Иссык-Кульская область"
-  source: "Полевой сбор экспедиции"
+# Автогенерированный черновой список фотографий (обновите подписи/метаданные)
+- file: yudakhin/woman_kizyak.jpg
+  title: "Woman kizyak"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
   people: []
-  notes: "Палатки и хозяйственный инвентарь"
-
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/woman_with_kid.jpg
+  title: "Woman with kid"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/zhilishe.jpg
+  title: "Zhilishe"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/deti.jpg
+  title: "Deti"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/gruppa.jpg
+  title: "Gruppa"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/gruppa1.jpg
+  title: "Gruppa 1"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/gruppa2.jpg
+  title: "Gruppa 2"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/gruppa_zhenshin.jpg
+  title: "Gruppa zhenshin"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/gruppa_zhenshin2.jpg
+  title: "Gruppa zhenshin 2"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/kalmyk_left.jpg
+  title: "Kalmyk left"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/osedanie.jpg
+  title: "Osedanie"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/semia.jpg
+  title: "Semia"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/semya_krestian.jpg
+  title: "Semya krestian"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/sudebniy_ispolnitel.jpg
+  title: "Sudebniy ispolnitel"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/torgovets_s_semiei.jpg
+  title: "Torgovets s semiei"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/torgovtsy.jpg
+  title: "Torgovtsy"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
+- file: yudakhin/borubash/yurta.jpg
+  title: "Yurta"
+  approx_date: ""
+  place: ""
+  source: "Коллекция Юдахина (уточнить)"
+  people: []
+  notes: "Черновик: уточните подпись, место, дату, авторство."
