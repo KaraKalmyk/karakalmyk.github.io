@@ -19,6 +19,8 @@ nav:
     url: "/pages/istoriya.html"
   - title: "Язык"
     url: "/pages/yazyk.html"
+  - title: "Религия"
+    url: "/pages/religiya.html"
   - title: "Фотоархив"
     url: "/pages/fotoarhiv.html"
   - title: "Карты"
