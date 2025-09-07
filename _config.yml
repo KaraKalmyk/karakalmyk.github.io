@@ -19,6 +19,8 @@ nav:
     url: "/pages/istoriya.html"
   - title: "Быт и культура"
     url: "/pages/byt-i-kultura.html"
+  - title: "Хозяйство"
+    url: "/pages/hozyaystvo.html"
   - title: "Язык"
     url: "/pages/yazyk.html"
   - title: "Религия"
