@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Блог"
+permalink: /pages/blog.html
+---
+# Блог
+
+Здесь будут автоматически собираться ссылки на материалы, помеченные как блог-посты.
+
+<p class="muted" style="font-size:.85rem;">Подсказка: чтобы страница попала в блог, добавьте в её YAML-фронтматтер `blog: true` и укажите `title:` и (по желанию) `date:`.</p>
+
+{% comment %} Сбор постов из двух мест: стандартный каталог _posts (site.posts) и страницы с front-matter blog: true {% endcomment %}
+{% assign posts = site.posts | default: [] %}
+{% assign pages_blog = site.pages | where: "blog", true | default: [] %}
+{% assign all_items = posts | concat: pages_blog %}
+{% if all_items.size > 0 %}
+<ul class="blog-list">
+  {% assign sorted = all_items | sort: 'date' | reverse %}
+  {% for item in sorted %}
+    <li>
+      <a href="{{ item.url | relative_url }}">{{ item.title | default: item.name }}</a>
+      {% if item.date %}<span class="muted"> — {{ item.date | date: "%Y-%m-%d" }}</span>{% endif %}
+      {% if item.excerpt %}<div class="muted" style="font-size:.9rem;">{{ item.excerpt | strip_html | truncate: 180 }}</div>{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Пока блог-постов не найдено. Создайте страницу и добавьте в её фронт-маттер <code>blog: true</code>, либо создавайте записи в каталоге <code>_posts/</code>.</p>
+{% endif %}
+
+<hr />
+
+<h3>Как публиковать посты</h3>
+<ul>
+  <li>Добавьте файл в папку <code>_posts/</code> с именем в формате <code>YYYY-MM-DD-title.md</code> и стандартным Jekyll-фронтматтером (title, date, layout).</li>
+  <li>Или пометьте обычную страницу в <code>pages/</code> через <code>blog: true</code> в её фронт-маттере.</li>
+</ul>
+
+<p class="muted">После добавления нового поста — закоммитьте и запушьте репозиторий, GitHub Pages автоматически пересоберёт сайт.</p>
+

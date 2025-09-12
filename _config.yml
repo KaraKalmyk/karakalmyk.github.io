@@ -35,6 +35,8 @@ nav:
     url: "/pages/ustnye-predaniya.html"
   - title: "Библиография"
     url: "/pages/bibliografiya.html"
+  - title: "Блог"
+    url: "/pages/blog.html"
   - title: "О проекте"
     url: "/pages/o-proekte.html"
   - title: "Контакты"
