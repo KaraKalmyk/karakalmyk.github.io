@@ -37,7 +37,7 @@ assets/images/foto/
 ## Галерея (черновой рендер из данных)
 {% assign photos = site.data.photos | default: [] %}
 {% if photos.size > 0 %}
-<div class="gallery-grid" id="photo-gallery">
+<div class="gallery-grid" id="photo-gallery" data-photo-count="{{ photos.size }}">
   {% for ph in photos %}
   <figure data-title="{{ ph.title | escape }}" data-place="{{ ph.place | escape }}">
     <img loading="lazy" src="{{ ('/photos/' | append: ph.file) | relative_url }}" alt="{{ ph.title | escape }}" />
@@ -48,7 +48,37 @@ assets/images/foto/
   </figure>
   {% endfor %}
 </div>
-<p class="muted" style="font-size:.7rem;">Всего фотографий: {{ photos.size }}. Некоторые файлы могут отсутствовать пока.</p>
+<p class="muted" style="font-size:.7rem;">Всего фотографий (данные): {{ photos.size }}. Если некоторые не отображаются, ниже отметка ошибок.</p>
+<div id="photo-diagnostics" style="font-size:.7rem; margin-top:.6rem;" aria-live="polite"></div>
+<script>
+// Простая диагностика загрузки изображений
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    const container = document.getElementById('photo-gallery');
+    if(!container) return;
+    const imgs = Array.from(container.querySelectorAll('img'));
+    const diag = document.getElementById('photo-diagnostics');
+    let errors = 0, loaded = 0;
+    function update(){
+      if(!diag) return;
+      diag.textContent = 'Загружено: ' + loaded + ' / ' + imgs.length + (errors ? (' | Ошибок: ' + errors) : '');
+    }
+    imgs.forEach(img => {
+      img.addEventListener('load', () => { loaded++; update(); }, { once:true });
+      img.addEventListener('error', () => {
+        errors++; update();
+        const fig = img.closest('figure');
+        if(fig) fig.classList.add('img-error');
+        img.alt = (img.alt || 'Фото') + ' (ошибка загрузки)';
+      }, { once:true });
+      // Уже кешировано?
+      if(img.complete && img.naturalWidth > 0){ loaded++; }
+      else if(img.complete && img.naturalWidth === 0){ errors++; const fig = img.closest('figure'); if(fig) fig.classList.add('img-error'); }
+    });
+    update();
+  });
+})();
+</script>
 {% else %}
 <p>Фотографии ещё не добавлены.</p>
 {% endif %}
