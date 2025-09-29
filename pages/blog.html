@@ -10,8 +10,10 @@ permalink: /pages/blog.html
 <p class="muted" style="font-size:.85rem;">Подсказка: чтобы страница попала в блог, добавьте в её YAML-фронтматтер `blog: true` и укажите `title:` и (по желанию) `date:`.</p>
 
 {% comment %} Сбор постов из двух мест: стандартный каталог _posts (site.posts) и страницы с front-matter blog: true {% endcomment %}
-{% assign posts = site.posts | default: [] %}
-{% assign pages_blog = site.pages | where: "blog", true | default: [] %}
+{% assign posts = site.posts %}
+{% unless posts %}{% assign posts = empty %}{% endunless %}
+{% assign pages_blog = site.pages | where: "blog", true %}
+{% unless pages_blog %}{% assign pages_blog = empty %}{% endunless %}
 {% assign all_items = posts | concat: pages_blog %}
 {% if all_items.size > 0 %}
 <ul class="blog-list">
@@ -37,4 +39,3 @@ permalink: /pages/blog.html
 </ul>
 
 <p class="muted">После добавления нового поста — закоммитьте и запушьте репозиторий, GitHub Pages автоматически пересоберёт сайт.</p>
-
