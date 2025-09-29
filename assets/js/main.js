@@ -142,6 +142,110 @@
       });
     }
 
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    function updateProgress() {
+      if (!progressBar) return;
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+    if (progressBar) {
+      updateProgress();
+      window.addEventListener('scroll', () => requestAnimationFrame(updateProgress), { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateProgress));
+    }
+
+    // Back to top button
+    const backBtn = document.getElementById('backToTop');
+    function updateBackBtn() {
+      if (!backBtn) return;
+      if (window.scrollY > 400) {
+        backBtn.hidden = false;
+        backBtn.classList.add('show');
+      } else {
+        backBtn.classList.remove('show');
+        backBtn.hidden = true;
+      }
+    }
+    if (backBtn) {
+      updateBackBtn();
+      window.addEventListener('scroll', () => requestAnimationFrame(updateBackBtn), { passive: true });
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Simple lightbox for gallery
+    const galleryFigures = Array.from(document.querySelectorAll('.gallery-grid figure'));
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCap = document.getElementById('lightboxCap');
+    const lbClose = lightbox ? lightbox.querySelector('.lightbox-close') : null;
+    const lbPrev = lightbox ? lightbox.querySelector('.lightbox-prev') : null;
+    const lbNext = lightbox ? lightbox.querySelector('.lightbox-next') : null;
+    let lbIndex = -1;
+
+    function readFigure(fig) {
+      const img = fig.querySelector('img');
+      const cap = fig.querySelector('figcaption');
+      return {
+        src: img ? img.getAttribute('src') : '',
+        alt: img ? img.getAttribute('alt') || '' : '',
+        caption: cap ? cap.textContent.trim() : ''
+      };
+    }
+    const items = galleryFigures.map(readFigure);
+
+    function openLightbox(i) {
+      if (!lightbox || !lbImg || !lbCap || i < 0 || i >= items.length) return;
+      lbIndex = i;
+      const it = items[i];
+      lbImg.src = it.src;
+      lbImg.alt = it.alt;
+      lbCap.textContent = it.caption;
+      lightbox.hidden = false;
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.hidden = true;
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbIndex = -1;
+    }
+    function showNext(delta) {
+      if (lbIndex < 0) return;
+      let i = lbIndex + delta;
+      if (i < 0) i = items.length - 1;
+      if (i >= items.length) i = 0;
+      openLightbox(i);
+    }
+
+    if (galleryFigures.length && lightbox) {
+      galleryFigures.forEach((fig, i) => {
+        const img = fig.querySelector('img');
+        if (img) {
+          img.addEventListener('click', () => openLightbox(i));
+        }
+      });
+      lbClose && lbClose.addEventListener('click', closeLightbox);
+      lbPrev && lbPrev.addEventListener('click', () => showNext(-1));
+      lbNext && lbNext.addEventListener('click', () => showNext(1));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.hidden) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext(1);
+        if (e.key === 'ArrowLeft') showNext(-1);
+      });
+    }
+
     // (Optional) Future map init can hook here.
   });
 })();
