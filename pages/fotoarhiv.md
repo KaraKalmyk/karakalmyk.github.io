@@ -40,7 +40,7 @@ assets/images/foto/
 <div class="gallery-grid" id="photo-gallery" data-photo-count="{{ photos.size }}">
   {% for ph in photos %}
   <figure data-title="{{ ph.title | escape }}" data-place="{{ ph.place | escape }}">
-    <img loading="lazy" src="{{ ('/photos/' | append: ph.file) | relative_url }}" alt="{{ ph.title | escape }}" />
+    <img loading="lazy" src="{{ ('/assets/images/' | append: ph.file) | relative_url }}" alt="{{ ph.title | escape }}" />
     <figcaption>
       <strong>{{ ph.title }}</strong>{% if ph.approx_date %} <span class="muted">({{ ph.approx_date }})</span>{% endif %}<br>
       {% if ph.place %}<span class="muted">{{ ph.place }}</span>{% endif %}
