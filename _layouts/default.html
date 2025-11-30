@@ -1,3 +1,4 @@
+---
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
@@ -13,37 +14,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   {% seo %}
 </head>
-<body>
-  <header class="site-header modern">
+<body class="site-body{% if page.body_class %} {{ page.body_class }}{% endif %}">
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
+  <header class="site-header modern" id="siteHeader">
     <div class="wrap nav-bar">
       <div class="brand">
-        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          <span class="brand-title">{{ site.title }}</span>
+          <span class="brand-subtitle">{{ site.description }}</span>
+        </a>
       </div>
-      <button class="hamburger" id="navToggle" aria-label="Меню" aria-expanded="false"><span></span></button>
-      <nav class="site-nav" aria-label="Главная навигация">
+      <nav class="site-nav" id="primaryNav" aria-label="Главная навигация">
         <ul>
           {% for item in site.nav %}
             <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
           {% endfor %}
         </ul>
       </nav>
-      <button class="mode-toggle" id="modeToggle" aria-label="Переключить тему" title="Переключить тему">◐</button>
+      <div class="nav-actions">
+        <button class="mode-toggle" id="modeToggle" type="button" aria-label="Переключить тему" title="Переключить тему">◐</button>
+        <button class="hamburger" id="navToggle" type="button" aria-label="Меню" aria-expanded="false"><span></span></button>
+      </div>
     </div>
   </header>
-  <!-- Scroll progress bar -->
-  <div id="scrollProgress" aria-hidden="true"></div>
-  <main class="site-content wrap" role="main">
-    {{ content }}
+  <div id="scrollProgress" class="scroll-progress" aria-hidden="true"></div>
+  <main class="site-main" id="content" role="main">
+    {% if page.fullbleed %}
+      {{ content }}
+    {% else %}
+      <article class="content-flow wrap">
+        {{ content }}
+      </article>
+    {% endif %}
   </main>
   <footer class="site-footer modern">
-    <div class="wrap">
-      <p>© {{ site.time | date: '%Y' }} {{ site.title }}. Неприменимо к коммерческому использованию без согласия авторов проекта.</p>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <p class="footer-title">{{ site.title }}</p>
+        <p class="footer-text">{{ site.description }}</p>
+      </div>
+      <div class="footer-column">
+        <p class="footer-heading">Разделы</p>
+        <ul>
+          {% for item in site.nav limit:6 %}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p class="footer-heading">Контакт</p>
+        <ul>
+          <li><a href="{{ '/pages/o-proekte.html' | relative_url }}">О проекте</a></li>
+          <li><a href="{{ '/pages/kontakty.html' | relative_url }}">Связаться</a></li>
+          <li><a href="{{ '/pages/blog.html' | relative_url }}">Блог</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© {{ site.time | date: '%Y' }} {{ site.title }}.</p>
       <p><small>Статический сайт на <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.</small></p>
     </div>
   </footer>
-  <!-- Back to top button -->
   <button id="backToTop" class="back-to-top" aria-label="Наверх" title="Наверх" hidden>↑</button>
-  <!-- Lightbox overlay for images -->
   <div id="lightbox" class="lightbox" hidden aria-hidden="true" role="dialog" aria-label="Просмотр изображения">
     <button class="lightbox-close" aria-label="Закрыть">×</button>
     <button class="lightbox-prev" aria-label="Предыдущее">‹</button>
@@ -56,3 +88,4 @@
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>
+---
