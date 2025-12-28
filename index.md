@@ -3,56 +3,44 @@ layout: moma
 title: "Главная"
 ---
 
-<!-- Hero Section: 100% Width Background Image -->
-<section class="hero-banner">
-  <div class="hero-banner-bg">
-    <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
-         alt="Сарт-калмычка в традиционной одежде" />
+<!-- Hero Section: 4-Photo Grid Layout -->
+<section class="hero-mosaic">
+  <div class="hero-mosaic-grid">
+    <!-- Main large photo -->
+    <div class="hero-mosaic-main">
+      <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
+           alt="Сарт-калмычка в традиционной одежде" />
+    </div>
+    <!-- Side photos -->
+    <div class="hero-mosaic-side">
+      <div class="hero-mosaic-item">
+        <img src="{{ '/photos/yudakhin/borubash/gruppa.jpg' | relative_url }}" 
+             alt="Группа сарт-калмыков, 1928" />
+      </div>
+      <div class="hero-mosaic-item">
+        <img src="{{ '/photos/yudakhin/borubash/gruppa_zhenshin.jpg' | relative_url }}" 
+             alt="Группа женщин сарт-калмыков" />
+      </div>
+      <div class="hero-mosaic-item">
+        <img src="{{ '/photos/yudakhin/borubash/osedanie.jpg' | relative_url }}" 
+             alt="Оседание сарт-калмыков" />
+      </div>
+    </div>
   </div>
-  <div class="hero-banner-content">
+  <!-- Content overlay -->
+  <div class="hero-mosaic-content">
     <span class="hero-eyebrow">Цифровой архив культурного наследия</span>
     <h1 class="hero-title">
       <span>Сарт-</span>
       <span>калмыки</span>
     </h1>
     <p class="hero-subtitle">
-      Язык, устная история, фотографии, топонимика и культурные практики ойратской общины у Каракола, Иссык-Куль.
+      Язык, устная история, фотографии и культурные практики ойратской общины Иссык-Куля.
     </p>
     <div class="hero-actions">
       <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn btn-primary">Фотоархив</a>
       <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn btn-light">О проекте</a>
     </div>
-  </div>
-  <span class="hero-banner-caption">Сарт-калмычка. Архивное фото</span>
-</section>
-
-<!-- Featured Archive Photos -->
-<section class="featured-photos">
-  <div class="featured-photos-grid">
-    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item featured-photo-large">
-      <img src="{{ '/photos/yudakhin/borubash/gruppa.jpg' | relative_url }}" 
-           alt="Группа сарт-калмыков, 1928" loading="lazy" />
-      <div class="featured-photo-overlay">
-        <span class="featured-photo-caption">Борубаш, 1928</span>
-      </div>
-    </a>
-    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item">
-      <img src="{{ '/photos/yudakhin/borubash/gruppa_zhenshin.jpg' | relative_url }}" 
-           alt="Группа женщин сарт-калмыков" loading="lazy" />
-      <div class="featured-photo-overlay">
-        <span class="featured-photo-caption">Группа женщин</span>
-      </div>
-    </a>
-    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item">
-      <img src="{{ '/photos/yudakhin/borubash/osedanie.jpg' | relative_url }}" 
-           alt="Оседание сарт-калмыков" loading="lazy" />
-      <div class="featured-photo-overlay">
-        <span class="featured-photo-caption">Оседание</span>
-      </div>
-    </a>
-  </div>
-  <div class="featured-photos-cta">
-    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn">Смотреть все фотографии →</a>
   </div>
 </section>
 

@@ -467,6 +467,234 @@ html[data-theme="dark"] .icon-moon { display: inline; }
    HOMEPAGE COMPONENTS
    ============================================ */
 
+/* === Hero Mosaic - 4 Photo Grid === */
+.hero-mosaic {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero-mosaic {
+    margin-left: calc(-1 * var(--sidebar-width));
+    width: calc(100% + var(--sidebar-width));
+  }
+}
+
+.hero-mosaic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  gap: 3px;
+  background: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+/* Main large photo - left side */
+.hero-mosaic-main {
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-main {
+    min-height: 100vh;
+  }
+}
+
+.hero-mosaic-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Side photos container - right side */
+.hero-mosaic-side {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  min-height: 50vh;
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-side {
+    min-height: 100vh;
+  }
+}
+
+.hero-mosaic-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mosaic-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.hero-mosaic-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Content overlay - positioned at bottom left */
+.hero-mosaic-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: var(--space-8) var(--space-6);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    transparent 100%
+  );
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-content {
+    right: auto;
+    max-width: 55%;
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-mosaic-content {
+    padding-left: calc(var(--sidebar-width) + var(--space-10));
+    max-width: 60%;
+  }
+}
+
+.hero-mosaic-content .hero-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-mosaic-content .hero-title {
+  color: var(--color-white);
+  font-size: var(--text-4xl);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-content .hero-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+.hero-mosaic-content .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-6);
+  max-width: 450px;
+}
+
+@media (min-width: 768px) {
+  .hero-mosaic-content .hero-subtitle {
+    font-size: var(--text-lg);
+  }
+}
+
+.hero-mosaic-content .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero-mosaic-content .btn-primary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+.hero-mosaic-content .btn-primary:hover {
+  background: transparent;
+  color: var(--color-white);
+}
+
+.hero-mosaic-content .btn-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+}
+
+.hero-mosaic-content .btn-light:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .hero-mosaic {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-mosaic-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
+    height: 100vh;
+  }
+
+  .hero-mosaic-main {
+    grid-column: span 2;
+    min-height: auto;
+  }
+
+  .hero-mosaic-side {
+    grid-column: span 2;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    min-height: auto;
+  }
+
+  .hero-mosaic-content {
+    padding: var(--space-6) var(--space-4);
+    max-width: 100%;
+  }
+
+  .hero-mosaic-content .hero-title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-mosaic-content .hero-subtitle {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-mosaic-content .hero-actions .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.7rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero-mosaic-content .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-mosaic-content .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* === Hero Section (MoMA-style) === */
 /* === Hero Banner - 100% Width Photo === */
 .hero-banner {
