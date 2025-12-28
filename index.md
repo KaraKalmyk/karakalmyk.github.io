@@ -26,6 +26,36 @@ title: "Главная"
   <span class="hero-banner-caption">Сарт-калмычка. Архивное фото</span>
 </section>
 
+<!-- Featured Archive Photos -->
+<section class="featured-photos">
+  <div class="featured-photos-grid">
+    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item featured-photo-large">
+      <img src="{{ '/photos/yudakhin/borubash/gruppa.jpg' | relative_url }}" 
+           alt="Группа сарт-калмыков, 1928" loading="lazy" />
+      <div class="featured-photo-overlay">
+        <span class="featured-photo-caption">Борубаш, 1928</span>
+      </div>
+    </a>
+    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item">
+      <img src="{{ '/photos/yudakhin/borubash/gruppa_zhenshin.jpg' | relative_url }}" 
+           alt="Группа женщин сарт-калмыков" loading="lazy" />
+      <div class="featured-photo-overlay">
+        <span class="featured-photo-caption">Группа женщин</span>
+      </div>
+    </a>
+    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="featured-photo-item">
+      <img src="{{ '/photos/yudakhin/borubash/osedanie.jpg' | relative_url }}" 
+           alt="Оседание сарт-калмыков" loading="lazy" />
+      <div class="featured-photo-overlay">
+        <span class="featured-photo-caption">Оседание</span>
+      </div>
+    </a>
+  </div>
+  <div class="featured-photos-cta">
+    <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn">Смотреть все фотографии →</a>
+  </div>
+</section>
+
 <!-- Stats Block -->
 <div class="stats-block container">
   <div class="stat-item" data-animate>

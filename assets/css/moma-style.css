@@ -628,6 +628,123 @@ html[data-theme="dark"] .icon-moon { display: inline; }
   }
 }
 
+/* === Featured Photos Section === */
+.featured-photos {
+  background: var(--bg-primary);
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .featured-photos {
+    margin-left: calc(-1 * var(--sidebar-width));
+    width: calc(100% + var(--sidebar-width));
+  }
+}
+
+.featured-photos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: var(--bg-primary);
+}
+
+@media (min-width: 768px) {
+  .featured-photos-grid {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.featured-photo-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--bg-secondary);
+}
+
+.featured-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow), filter var(--transition-slow);
+}
+
+.featured-photo-item:hover img {
+  transform: scale(1.05);
+}
+
+.featured-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 50%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-4);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.featured-photo-item:hover .featured-photo-overlay {
+  opacity: 1;
+}
+
+.featured-photo-caption {
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Large photo spans two rows on desktop */
+@media (min-width: 768px) {
+  .featured-photo-large {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+}
+
+.featured-photos-cta {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--bg-primary);
+}
+
+@media (min-width: 1024px) {
+  .featured-photos-cta {
+    padding-left: calc(var(--sidebar-width) + var(--space-6));
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .featured-photos-grid {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
+  .featured-photo-item {
+    aspect-ratio: 16/10;
+    border-radius: 4px;
+  }
+
+  .featured-photo-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.6) 0%,
+      transparent 40%
+    );
+  }
+
+  .featured-photos-cta {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
 /* === Full-Width Hero Section === */
 .hero-fullwidth {
   position: relative;
