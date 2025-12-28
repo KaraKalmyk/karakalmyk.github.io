@@ -1192,3 +1192,450 @@ html[data-theme="dark"] .icon-moon { display: inline; }
   color: var(--bg-primary);
 }
 
+
+/* ============================================
+   MOBILE-SPECIFIC ENHANCEMENTS
+   ============================================ */
+
+/* === Mobile Hero Improvements === */
+@media (max-width: 767px) {
+  .hero-moma {
+    min-height: auto;
+    padding: var(--space-6) var(--space-4);
+    padding-top: calc(60px + var(--space-6)); /* Account for fixed header */
+    gap: var(--space-6);
+  }
+
+  .hero-content {
+    order: 1;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin-bottom: var(--space-4);
+    line-height: 0.95;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-6);
+    max-width: 100%;
+  }
+
+  .hero-image {
+    order: 2;
+    aspect-ratio: 3/4;
+    margin-top: 0;
+    border-radius: 4px;
+  }
+
+  .hero-image-caption {
+    font-size: 0.65rem;
+    padding: var(--space-2);
+    bottom: var(--space-2);
+    left: var(--space-2);
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.75rem;
+  }
+}
+
+/* === Mobile Stats Block === */
+@media (max-width: 767px) {
+  .stats-block {
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .stat-number {
+    font-size: var(--text-2xl);
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* === Mobile Section Headers === */
+@media (max-width: 767px) {
+  .section-moma {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-sm);
+  }
+}
+
+/* === Mobile Card Grid === */
+@media (max-width: 767px) {
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .card-moma {
+    border-radius: 8px;
+  }
+
+  .card-moma.span-12,
+  .card-moma.span-8,
+  .card-moma.span-6,
+  .card-moma.span-4,
+  .card-moma.span-3 {
+    grid-column: span 1;
+  }
+
+  /* Feature card mobile layout */
+  .card-feature {
+    min-height: auto;
+  }
+
+  .card-feature .card-image {
+    min-height: 200px;
+    aspect-ratio: 16/9;
+  }
+
+  .card-feature .card-content {
+    padding: var(--space-5);
+  }
+
+  .card-feature .card-title {
+    font-size: var(--text-xl);
+  }
+
+  .card-content {
+    padding: var(--space-4);
+  }
+
+  .card-title {
+    font-size: var(--text-lg);
+  }
+
+  .card-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .card-tag {
+    font-size: 0.6rem;
+  }
+
+  .card-link {
+    font-size: 0.75rem;
+    margin-top: var(--space-3);
+  }
+}
+
+/* === Mobile Asymmetric Block === */
+@media (max-width: 767px) {
+  .asymmetric-block {
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-5);
+  }
+
+  .asymmetric-image {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .asymmetric-image::before {
+    display: none; /* Hide decorative element on mobile */
+  }
+
+  .asymmetric-content {
+    padding: 0;
+    text-align: center;
+  }
+
+  .asymmetric-content h2 {
+    font-size: var(--text-xl);
+  }
+
+  .asymmetric-content p {
+    font-size: var(--text-base);
+  }
+
+  .asymmetric-content .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* === Mobile Gallery === */
+@media (max-width: 767px) {
+  .gallery-moma {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    border-radius: 4px;
+  }
+
+  .gallery-item img {
+    min-height: 100%;
+  }
+
+  /* First item spans full width */
+  .gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+
+  .gallery-caption {
+    padding: var(--space-2);
+    opacity: 1; /* Always visible on mobile */
+    transform: none;
+  }
+
+  .gallery-caption-title {
+    font-size: 0.7rem;
+  }
+
+  .gallery-caption-meta {
+    font-size: 0.6rem;
+  }
+}
+
+/* === Mobile Quote Block === */
+@media (max-width: 767px) {
+  .quote-block {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .quote-text {
+    font-size: var(--text-lg);
+    line-height: 1.4;
+  }
+
+  .quote-author {
+    font-size: 0.7rem;
+  }
+}
+
+/* === Mobile CTA Section === */
+@media (max-width: 767px) {
+  .cta-section {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .cta-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .cta-text {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .cta-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* === Mobile Footer === */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: var(--space-8) var(--space-4);
+    margin-top: var(--space-10);
+    text-align: center;
+  }
+
+  .footer-grid {
+    align-items: center;
+  }
+}
+
+/* === Mobile Navigation Enhancements === */
+@media (max-width: 1023px) {
+  .mobile-header {
+    padding: 0 var(--space-4);
+    height: 56px;
+  }
+
+  .mobile-logo {
+    font-size: var(--text-base);
+  }
+
+  .hamburger {
+    padding: 10px;
+    margin-right: -10px; /* Increase tap target */
+  }
+
+  .hamburger span {
+    width: 22px;
+  }
+
+  .mobile-menu-overlay {
+    padding: 80px var(--space-4) var(--space-4);
+    overflow-y: auto;
+  }
+
+  .mobile-nav a {
+    font-size: var(--text-lg);
+    padding: var(--space-3) 0;
+  }
+
+  /* Add theme toggle to mobile menu */
+  .mobile-menu-overlay .mobile-theme-toggle {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+}
+
+/* === Touch-friendly Enhancements === */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover-only effects, always show captions */
+  .gallery-caption {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card-link::after {
+    transform: none !important;
+  }
+
+  /* Larger tap targets */
+  .btn {
+    min-height: 48px;
+  }
+
+  .card-moma {
+    cursor: pointer;
+  }
+
+  /* Remove hover scale on images for touch devices */
+  .card-moma:hover .card-image img,
+  .gallery-item:hover img {
+    transform: none;
+  }
+}
+
+/* === Safe Area Insets (for notched phones) === */
+@supports (padding: max(0px)) {
+  .mobile-header {
+    padding-left: max(var(--space-4), env(safe-area-inset-left));
+    padding-right: max(var(--space-4), env(safe-area-inset-right));
+  }
+
+  .main-content {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .site-footer {
+    padding-bottom: max(var(--space-8), env(safe-area-inset-bottom));
+  }
+}
+
+/* === Smaller Mobile Devices (< 375px) === */
+@media (max-width: 374px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .stats-block {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-number {
+    font-size: var(--text-xl);
+  }
+}
+
+/* === Landscape Mobile === */
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero-moma {
+    min-height: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  .hero-content {
+    order: 1;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    order: 2;
+    aspect-ratio: 4/3;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* === Print Styles Enhancement === */
+@media print {
+  .hero-image-caption,
+  .gallery-caption,
+  .btn,
+  .hero-actions {
+    display: none !important;
+  }
+
+  .card-moma,
+  .asymmetric-block,
+  .gallery-moma {
+    break-inside: avoid;
+  }
+}
+

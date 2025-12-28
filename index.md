@@ -29,7 +29,7 @@ title: "Главная"
 <!-- Stats Block -->
 <div class="stats-block container">
   <div class="stat-item" data-animate>
-    <div class="stat-number">1928</div>
+    <div class="stat-number">5</div>
     <div class="stat-label">Экспедиции</div>
   </div>
   <div class="stat-item" data-animate>

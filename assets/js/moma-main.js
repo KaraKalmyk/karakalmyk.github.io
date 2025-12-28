@@ -8,6 +8,7 @@
 
   // === Theme Toggle ===
   const themeToggle = document.getElementById('themeToggle');
+  const mobileThemeToggle = document.getElementById('mobileThemeToggle');
   const html = document.documentElement;
 
   // Check for saved theme preference or respect system preference
@@ -25,9 +26,17 @@
   // Initialize theme
   setTheme(getPreferredTheme());
 
-  // Toggle theme on button click
+  // Toggle theme on button click (desktop)
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Toggle theme on mobile button click
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     });
