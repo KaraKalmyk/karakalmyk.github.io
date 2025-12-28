@@ -3,9 +3,13 @@ layout: moma
 title: "Главная"
 ---
 
-<!-- Hero Section: Asymmetrical Layout with Full-Width Image -->
-<section class="hero-moma hero-with-fade">
-  <div class="hero-content">
+<!-- Hero Section: 100% Width Background Image -->
+<section class="hero-banner">
+  <div class="hero-banner-bg">
+    <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
+         alt="Сарт-калмычка в традиционной одежде" />
+  </div>
+  <div class="hero-banner-content">
     <span class="hero-eyebrow">Цифровой архив культурного наследия</span>
     <h1 class="hero-title">
       <span>Сарт-</span>
@@ -16,14 +20,10 @@ title: "Главная"
     </p>
     <div class="hero-actions">
       <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn btn-primary">Фотоархив</a>
-      <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn">О проекте</a>
+      <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn btn-light">О проекте</a>
     </div>
   </div>
-  <div class="hero-image hero-image-fullwidth">
-    <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
-         alt="Сарт-калмычка в традиционной одежде" />
-    <span class="hero-image-caption">Сарт-калмычка. Архивное фото</span>
-  </div>
+  <span class="hero-banner-caption">Сарт-калмычка. Архивное фото</span>
 </section>
 
 <!-- Stats Block -->
