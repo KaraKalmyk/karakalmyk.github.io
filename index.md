@@ -3,27 +3,29 @@ layout: moma
 title: "Главная"
 ---
 
-<!-- Hero Section: Asymmetrical Layout with Bold Typography -->
-<section class="hero-moma">
-  <div class="hero-content">
-    <span class="hero-eyebrow">Цифровой архив культурного наследия</span>
-    <h1 class="hero-title">
-      <span>Сарт-</span>
-      <span>калмыки</span>
-    </h1>
-    <p class="hero-subtitle">
-      Язык, устная история, фотографии, топонимика и культурные практики ойратской общины у Каракола, Иссык-Куль.
-    </p>
-    <div class="hero-actions">
-      <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn btn-primary">Фотоархив</a>
-      <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn">О проекте</a>
-    </div>
-  </div>
-  <div class="hero-image">
+<!-- Hero Section: Full-Width Image with Overlay Text -->
+<section class="hero-fullwidth">
+  <div class="hero-fullwidth-image">
     <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
          alt="Сарт-калмычка в традиционной одежде" />
-    <span class="hero-image-caption">Сарт-калмычка. Архивное фото</span>
   </div>
+  <div class="hero-fullwidth-overlay">
+    <div class="hero-fullwidth-content">
+      <span class="hero-eyebrow">Цифровой архив культурного наследия</span>
+      <h1 class="hero-title">
+        <span>Сарт-</span>
+        <span>калмыки</span>
+      </h1>
+      <p class="hero-subtitle">
+        Язык, устная история, фотографии, топонимика и культурные практики ойратской общины у Каракола, Иссык-Куль.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ '/pages/fotoarhiv.html' | relative_url }}" class="btn btn-primary">Фотоархив</a>
+        <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn btn-light">О проекте</a>
+      </div>
+    </div>
+  </div>
+  <span class="hero-fullwidth-caption">Сарт-калмычка. Архивное фото</span>
 </section>
 
 <!-- Stats Block -->
