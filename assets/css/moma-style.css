@@ -1040,6 +1040,72 @@ html[data-theme="dark"] .icon-moon { display: inline; }
   }
 }
 
+/* === Mobile Page Content === */
+@media (max-width: 767px) {
+  .page-content {
+    padding: var(--space-6) var(--space-4);
+    padding-top: calc(60px + var(--space-6)); /* Account for mobile header */
+  }
+
+  .page-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-meta {
+    font-size: var(--text-sm);
+  }
+
+  .prose h2 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+
+  .prose h3 {
+    font-size: var(--text-lg);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+
+  .prose p {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+  }
+
+  .prose ul, .prose ol {
+    padding-left: var(--space-4);
+  }
+
+  .prose li {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+  }
+
+  .prose blockquote {
+    margin: var(--space-4) 0;
+    padding: var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  .prose code {
+    font-size: 0.85em;
+    word-break: break-word;
+  }
+
+  .prose pre {
+    overflow-x: auto;
+    font-size: 0.8rem;
+    padding: var(--space-4);
+  }
+}
+
 .page-header {
   margin-bottom: var(--space-10);
   padding-bottom: var(--space-8);
@@ -1109,6 +1175,94 @@ html[data-theme="dark"] .icon-moon { display: inline; }
 .prose a {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Table styles for prose */
+.prose table {
+  width: 100%;
+  margin: var(--space-6) 0;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.prose th,
+.prose td {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--bg-secondary);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.prose td {
+  color: var(--text-secondary);
+}
+
+.prose tr:nth-child(even) {
+  background: var(--bg-secondary);
+}
+
+/* Code styles for prose */
+.prose code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.875em;
+  background: var(--bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: var(--text-primary);
+}
+
+.prose pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: var(--space-5);
+  overflow-x: auto;
+  margin: var(--space-6) 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* HR in prose */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--space-8) 0;
+}
+
+/* Strong and emphasis */
+.prose strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Mobile table responsiveness */
+@media (max-width: 767px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose th,
+  .prose td {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
 }
 
 /* === Animations === */

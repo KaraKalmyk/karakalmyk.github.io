@@ -1,25 +1,34 @@
 ---
-layout: default
+layout: moma
 title: "Карты"
 permalink: /pages/karty.html
 ---
-# Карты
 
-Раздел для статичных и интерактивных карт.
+<article class="page-content">
+  <header class="page-header">
+    <span class="text-uppercase" style="color: var(--text-muted); margin-bottom: var(--space-3); display: block;">География</span>
+    <h1 class="page-title">Карты</h1>
+    <p class="page-meta">Статичные и интерактивные карты региона</p>
+  </header>
+
+  <div class="prose">
 
 ## Идеи
+
 - Исторические стоянки и зимовки
 - Перемещения (сезонные маршруты)
 - Родовые участки / кладбища (с осторожностью и уважением)
 - Топонимика (оригинальные названия и современные)
 
 ## Технологии (позже)
+
 - Простые статические изображения в `assets/images/maps/`
 - GeoJSON файлы в `assets/data/geo/`
 - Встраивание Leaflet.js для интерактивной карты
 
-## Пример структуры GeoJSON (points.geojson)
-```
+## Пример структуры GeoJSON
+
+```json
 {
   "type": "FeatureCollection",
   "features": [
@@ -34,3 +43,5 @@ permalink: /pages/karty.html
 
 > Важно: не публикуйте чувствительные координаты (например, мест погребений) без разрешения общины.
 
+  </div>
+</article>

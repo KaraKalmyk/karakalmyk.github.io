@@ -20,9 +20,9 @@ title: "Главная"
     </div>
   </div>
   <div class="hero-image">
-    <img src="{{ '/photos/yudakhin/borubash/gruppa.jpg' | relative_url }}" 
-         alt="Группа сарт-калмыков, экспедиция Юдахина, 1928" />
-    <span class="hero-image-caption">Борубаш, 1928. Коллекция Юдахина</span>
+    <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
+         alt="Сарт-калмычка в традиционной одежде" />
+    <span class="hero-image-caption">Сарт-калмычка. Архивное фото</span>
   </div>
 </section>
 
