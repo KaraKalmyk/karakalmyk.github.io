@@ -3,28 +3,13 @@ layout: moma
 title: "Главная"
 ---
 
-<!-- Hero Section: 2x2 Photo Tile Grid -->
-<section class="hero-tiles">
-  <div class="hero-tiles-grid">
-    <div class="hero-tile hero-tile-main">
-      <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
-           alt="Сарт-калмычка в традиционной одежде" />
-    </div>
-    <div class="hero-tile">
-      <img src="{{ '/photos/yudakhin/borubash/gruppa.jpg' | relative_url }}" 
-           alt="Группа сарт-калмыков, 1928" />
-    </div>
-    <div class="hero-tile">
-      <img src="{{ '/photos/yudakhin/borubash/gruppa_zhenshin.jpg' | relative_url }}" 
-           alt="Группа женщин сарт-калмыков" />
-    </div>
-    <div class="hero-tile">
-      <img src="{{ '/photos/yudakhin/borubash/osedanie.jpg' | relative_url }}" 
-           alt="Оседание сарт-калмыков" />
-    </div>
+<!-- Hero Section: Single Main Photo -->
+<section class="hero-banner">
+  <div class="hero-banner-bg">
+    <img src="{{ '/photos/home_woman.jpg' | relative_url }}" 
+         alt="Сарт-калмычка в традиционной одежде" />
   </div>
-  <!-- Content overlay -->
-  <div class="hero-tiles-content">
+  <div class="hero-banner-content">
     <span class="hero-eyebrow">Цифровой архив культурного наследия</span>
     <h1 class="hero-title">
       <span>Сарт-</span>
@@ -38,6 +23,7 @@ title: "Главная"
       <a href="{{ '/pages/o-proekte.html' | relative_url }}" class="btn btn-light">О проекте</a>
     </div>
   </div>
+  <span class="hero-banner-caption">Сарт-калмычка. Архивное фото</span>
 </section>
 
 <!-- Stats Block -->
