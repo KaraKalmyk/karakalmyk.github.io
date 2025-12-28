@@ -467,6 +467,168 @@ html[data-theme="dark"] .icon-moon { display: inline; }
    HOMEPAGE COMPONENTS
    ============================================ */
 
+/* === Hero Tiles - 2x2 Grid === */
+.hero-tiles {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero-tiles {
+    margin-left: calc(-1 * var(--sidebar-width));
+    width: calc(100% + var(--sidebar-width));
+  }
+}
+
+.hero-tiles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  gap: 3px;
+  background: var(--color-black);
+}
+
+.hero-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.hero-tile:hover img {
+  transform: scale(1.03);
+}
+
+/* Main tile (top-left) can be emphasized */
+.hero-tile-main img {
+  object-position: center top;
+}
+
+/* Content overlay */
+.hero-tiles-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: var(--space-8) var(--space-6);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 60%,
+    transparent 100%
+  );
+  color: var(--color-white);
+}
+
+@media (min-width: 1024px) {
+  .hero-tiles-content {
+    padding: var(--space-10) var(--space-8);
+    padding-left: calc(var(--sidebar-width) + var(--space-10));
+  }
+}
+
+.hero-tiles-content .hero-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-tiles-content .hero-title {
+  color: var(--color-white);
+  font-size: var(--text-4xl);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .hero-tiles-content .hero-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+.hero-tiles-content .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-5);
+  max-width: 500px;
+}
+
+.hero-tiles-content .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero-tiles-content .btn-primary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+.hero-tiles-content .btn-primary:hover {
+  background: transparent;
+  color: var(--color-white);
+}
+
+.hero-tiles-content .btn-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+}
+
+.hero-tiles-content .btn-light:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+/* Mobile: keep 2x2 grid but adjust content */
+@media (max-width: 767px) {
+  .hero-tiles-content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero-tiles-content .hero-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-tiles-content .hero-subtitle {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-tiles-content .hero-eyebrow {
+    font-size: 0.6rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-tiles-content .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.7rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .hero-tiles-content .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-tiles-content .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* === Hero Mosaic - 4 Photo Grid === */
 .hero-mosaic {
   position: relative;
