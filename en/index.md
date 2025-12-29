@@ -1,10 +1,11 @@
 ---
 layout: moma
-title: "Главная"
-lang: ru
+title: "Home"
+lang: en
+permalink: /en/
 ---
 
-{% assign lang = page.lang | default: site.lang | default: "ru" %}
+{% assign lang = page.lang | default: "en" %}
 {% assign t = site.data.translations[lang] %}
 
 <!-- Hero Section: Single Main Photo -->
@@ -23,8 +24,8 @@ lang: ru
       {{ t.hero.subtitle }}
     </p>
     <div class="hero-actions">
-      <a href="{% if lang == 'ru' %}/pages/fotoarhiv.html{% else %}/{{ lang }}/pages/fotoarhiv.html{% endif %}" class="btn btn-primary">{{ t.hero.btn_photos }}</a>
-      <a href="{% if lang == 'ru' %}/pages/o-proekte.html{% else %}/{{ lang }}/pages/o-proekte.html{% endif %}" class="btn btn-light">{{ t.hero.btn_about }}</a>
+      <a href="/{{ lang }}/pages/fotoarhiv.html" class="btn btn-primary">{{ t.hero.btn_photos }}</a>
+      <a href="/{{ lang }}/pages/o-proekte.html" class="btn btn-light">{{ t.hero.btn_about }}</a>
     </div>
   </div>
   <span class="hero-banner-caption">{{ t.hero.caption }}</span>
@@ -61,8 +62,8 @@ lang: ru
     </header>
 
     <div class="card-grid stagger-children">
-      <!-- Featured Card: История -->
-      <a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}" class="card-moma card-feature span-12">
+      <!-- Featured Card: History -->
+      <a href="/{{ lang }}/pages/istoriya.html" class="card-moma card-feature span-12">
         <div class="card-image">
           <img src="{{ '/photos/yudakhin/borubash/yurta.jpg' | relative_url }}" 
                alt="{{ t.cards.history_title }}" />
@@ -77,8 +78,8 @@ lang: ru
         </div>
       </a>
 
-      <!-- Язык -->
-      <a href="{% if lang == 'ru' %}/pages/yazyk.html{% else %}/{{ lang }}/pages/yazyk.html{% endif %}" class="card-moma span-6">
+      <!-- Language -->
+      <a href="/{{ lang }}/pages/yazyk.html" class="card-moma span-6">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.language_tag }}</span>
           <h3 class="card-title">{{ t.cards.language_title }}</h3>
@@ -89,8 +90,8 @@ lang: ru
         </div>
       </a>
 
-      <!-- Фотоархив -->
-      <a href="{% if lang == 'ru' %}/pages/fotoarhiv.html{% else %}/{{ lang }}/pages/fotoarhiv.html{% endif %}" class="card-moma span-6">
+      <!-- Photo Archive -->
+      <a href="/{{ lang }}/pages/fotoarhiv.html" class="card-moma span-6">
         <div class="card-image">
           <img src="{{ '/photos/yudakhin/borubash/semia.jpg' | relative_url }}" 
                alt="{{ t.cards.photos_title }}" />
@@ -105,8 +106,8 @@ lang: ru
         </div>
       </a>
 
-      <!-- Карты -->
-      <a href="{% if lang == 'ru' %}/pages/karty.html{% else %}/{{ lang }}/pages/karty.html{% endif %}" class="card-moma span-4">
+      <!-- Maps -->
+      <a href="/{{ lang }}/pages/karty.html" class="card-moma span-4">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.maps_tag }}</span>
           <h3 class="card-title">{{ t.cards.maps_title }}</h3>
@@ -117,8 +118,8 @@ lang: ru
         </div>
       </a>
 
-      <!-- Устные предания -->
-      <a href="{% if lang == 'ru' %}/pages/ustnye-predaniya.html{% else %}/{{ lang }}/pages/ustnye-predaniya.html{% endif %}" class="card-moma span-4">
+      <!-- Oral Traditions -->
+      <a href="/{{ lang }}/pages/ustnye-predaniya.html" class="card-moma span-4">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.oral_tag }}</span>
           <h3 class="card-title">{{ t.cards.oral_title }}</h3>
@@ -129,8 +130,8 @@ lang: ru
         </div>
       </a>
 
-      <!-- Библиография -->
-      <a href="{% if lang == 'ru' %}/pages/bibliografiya.html{% else %}/{{ lang }}/pages/bibliografiya.html{% endif %}" class="card-moma span-4">
+      <!-- Bibliography -->
+      <a href="/{{ lang }}/pages/bibliografiya.html" class="card-moma span-4">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.biblio_tag }}</span>
           <h3 class="card-title">{{ t.cards.biblio_title }}</h3>
@@ -160,7 +161,7 @@ lang: ru
     <p style="font-size: var(--text-lg); line-height: 1.6;">
       {{ t.origin.text }}
     </p>
-    <a href="{% if lang == 'ru' %}/pages/proiskhozhdenie.html{% else %}/{{ lang }}/pages/proiskhozhdenie.html{% endif %}" class="btn" style="margin-top: var(--space-6);">
+    <a href="/{{ lang }}/pages/proiskhozhdenie.html" class="btn" style="margin-top: var(--space-6);">
       {{ t.origin.btn }}
     </a>
   </div>
@@ -190,7 +191,7 @@ lang: ru
     </div>
 
     <div style="text-align: center; margin-top: var(--space-8);">
-      <a href="{% if lang == 'ru' %}/pages/fotoarhiv.html{% else %}/{{ lang }}/pages/fotoarhiv.html{% endif %}" class="btn">
+      <a href="/{{ lang }}/pages/fotoarhiv.html" class="btn">
         {{ t.archive.btn }}
       </a>
     </div>
@@ -211,7 +212,7 @@ lang: ru
   <p class="cta-text">
     {{ t.cta.text }}
   </p>
-  <a href="{% if lang == 'ru' %}/pages/kontakty.html{% else %}/{{ lang }}/pages/kontakty.html{% endif %}" class="btn">
+  <a href="/{{ lang }}/pages/kontakty.html" class="btn">
     {{ t.cta.btn }}
   </a>
 </section>
@@ -220,28 +221,28 @@ lang: ru
 <section class="section-moma">
   <div class="container">
     <div class="card-grid">
-      <a href="{% if lang == 'ru' %}/pages/byt-i-kultura.html{% else %}/{{ lang }}/pages/byt-i-kultura.html{% endif %}" class="card-moma span-3">
+      <a href="/{{ lang }}/pages/byt-i-kultura.html" class="card-moma span-3">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.culture_tag }}</span>
           <h3 class="card-title">{{ t.cards.culture_title }}</h3>
           <span class="card-link">→</span>
         </div>
       </a>
-      <a href="{% if lang == 'ru' %}/pages/hozyaystvo.html{% else %}/{{ lang }}/pages/hozyaystvo.html{% endif %}" class="card-moma span-3">
+      <a href="/{{ lang }}/pages/hozyaystvo.html" class="card-moma span-3">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.economy_tag }}</span>
           <h3 class="card-title">{{ t.cards.economy_title }}</h3>
           <span class="card-link">→</span>
         </div>
       </a>
-      <a href="{% if lang == 'ru' %}/pages/religiya.html{% else %}/{{ lang }}/pages/religiya.html{% endif %}" class="card-moma span-3">
+      <a href="/{{ lang }}/pages/religiya.html" class="card-moma span-3">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.religion_tag }}</span>
           <h3 class="card-title">{{ t.cards.religion_title }}</h3>
           <span class="card-link">→</span>
         </div>
       </a>
-      <a href="{% if lang == 'ru' %}/pages/blog.html{% else %}/{{ lang }}/pages/blog.html{% endif %}" class="card-moma span-3">
+      <a href="/{{ lang }}/pages/blog.html" class="card-moma span-3">
         <div class="card-content">
           <span class="card-tag">{{ t.cards.blog_tag }}</span>
           <h3 class="card-title">{{ t.cards.blog_title }}</h3>
@@ -251,3 +252,4 @@ lang: ru
     </div>
   </div>
 </section>
+

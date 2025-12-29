@@ -270,6 +270,49 @@ html[data-theme="dark"] .logo:hover {
   background: var(--bg-secondary);
 }
 
+/* === Language Switcher === */
+.lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.lang-link {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.lang-link:hover {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+.lang-link.active {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.mobile-lang-switcher {
+  display: flex;
+  gap: var(--space-1);
+  margin-right: var(--space-3);
+}
+
+.mobile-lang-switcher .lang-link {
+  font-size: 0.65rem;
+  padding: var(--space-1);
+}
+
 .sidebar-footer {
   margin-top: auto;
   padding-top: var(--space-6);

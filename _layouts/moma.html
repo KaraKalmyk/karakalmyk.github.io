@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+{% assign lang = page.lang | default: site.lang | default: "ru" %}
+{% assign t = site.data.translations[lang] %}
+<html lang="{{ lang }}" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | default: site.description }}" />
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ t.site.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | default: t.site.description | default: site.description }}" />
 
   <!-- MoMA-inspired fonts: Inter for body, bold display font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,24 +23,50 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-inner">
       <div class="sidebar-brand">
-        <a href="{{ '/' | relative_url }}" class="logo">СК</a>
+        <a href="{% if lang == 'ru' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: lang | append: '/' | relative_url }}{% endif %}" class="logo">СК</a>
       </div>
 
-      <nav class="sidebar-nav" aria-label="Главная навигация">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        {% for language in site.languages %}
+          {% if language == lang %}
+            <span class="lang-link active">{{ site.language_names[language] }}</span>
+          {% else %}
+            {% if language == 'ru' %}
+              <a href="{{ page.url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+            {% else %}
+              <a href="{{ '/' | append: language | append: page.url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <nav class="sidebar-nav" aria-label="{{ t.nav.home }}">
         <ul>
-          {% for item in site.nav %}
-            <li>
-              <a href="{{ item.url | relative_url }}"
-                 {% if page.url == item.url %}aria-current="page" class="active"{% endif %}>
-                {{ item.title }}
-              </a>
-            </li>
-          {% endfor %}
+          <li>
+            <a href="{% if lang == 'ru' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: lang | append: '/' | relative_url }}{% endif %}"
+               {% if page.url == '/' or page.url == '/index.html' %}aria-current="page" class="active"{% endif %}>
+              {{ t.nav.home }}
+            </a>
+          </li>
+          <li><a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}">{{ t.nav.history }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/proiskhozhdenie.html{% else %}/{{ lang }}/pages/proiskhozhdenie.html{% endif %}">{{ t.nav.origin }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/byt-i-kultura.html{% else %}/{{ lang }}/pages/byt-i-kultura.html{% endif %}">{{ t.nav.culture }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/hozyaystvo.html{% else %}/{{ lang }}/pages/hozyaystvo.html{% endif %}">{{ t.nav.economy }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/yazyk.html{% else %}/{{ lang }}/pages/yazyk.html{% endif %}">{{ t.nav.language }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/religiya.html{% else %}/{{ lang }}/pages/religiya.html{% endif %}">{{ t.nav.religion }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/fotoarhiv.html{% else %}/{{ lang }}/pages/fotoarhiv.html{% endif %}">{{ t.nav.photos }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/karty.html{% else %}/{{ lang }}/pages/karty.html{% endif %}">{{ t.nav.maps }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/ustnye-predaniya.html{% else %}/{{ lang }}/pages/ustnye-predaniya.html{% endif %}">{{ t.nav.oral_traditions }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/bibliografiya.html{% else %}/{{ lang }}/pages/bibliografiya.html{% endif %}">{{ t.nav.bibliography }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/blog.html{% else %}/{{ lang }}/pages/blog.html{% endif %}">{{ t.nav.blog }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/o-proekte.html{% else %}/{{ lang }}/pages/o-proekte.html{% endif %}">{{ t.nav.about }}</a></li>
+          <li><a href="{% if lang == 'ru' %}/pages/kontakty.html{% else %}/{{ lang }}/pages/kontakty.html{% endif %}">{{ t.nav.contacts }}</a></li>
         </ul>
       </nav>
 
       <div class="sidebar-footer">
-        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+        <button class="theme-toggle" id="themeToggle" aria-label="{{ t.ui.toggle_theme }}">
           <span class="icon-sun">☀</span>
           <span class="icon-moon">☾</span>
         </button>
@@ -48,8 +76,21 @@
 
   <!-- Mobile Top Bar -->
   <header class="mobile-header">
-    <a href="{{ '/' | relative_url }}" class="mobile-logo">Сарт-калмыки</a>
-    <button class="hamburger" id="menuToggle" aria-label="Открыть меню">
+    <a href="{% if lang == 'ru' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: lang | append: '/' | relative_url }}{% endif %}" class="mobile-logo">{{ t.hero.title_1 }}{{ t.hero.title_2 }}</a>
+    <div class="mobile-lang-switcher">
+      {% for language in site.languages %}
+        {% if language == lang %}
+          <span class="lang-link active">{{ language | upcase }}</span>
+        {% else %}
+          {% if language == 'ru' %}
+            <a href="{{ page.url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+          {% else %}
+            <a href="{{ '/' | append: language | append: page.url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <button class="hamburger" id="menuToggle" aria-label="{{ t.ui.open_menu }}">
       <span></span>
       <span></span>
       <span></span>
@@ -60,18 +101,23 @@
   <div class="mobile-menu-overlay" id="mobileMenuOverlay">
     <nav class="mobile-nav">
       <ul>
-        {% for item in site.nav %}
-          <li>
-            <a href="{{ item.url | relative_url }}"
-               {% if page.url == item.url %}aria-current="page"{% endif %}>
-              {{ item.title }}
-            </a>
-          </li>
-        {% endfor %}
+        <li><a href="{% if lang == 'ru' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: lang | append: '/' | relative_url }}{% endif %}">{{ t.nav.home }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}">{{ t.nav.history }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/proiskhozhdenie.html{% else %}/{{ lang }}/pages/proiskhozhdenie.html{% endif %}">{{ t.nav.origin }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/byt-i-kultura.html{% else %}/{{ lang }}/pages/byt-i-kultura.html{% endif %}">{{ t.nav.culture }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/hozyaystvo.html{% else %}/{{ lang }}/pages/hozyaystvo.html{% endif %}">{{ t.nav.economy }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/yazyk.html{% else %}/{{ lang }}/pages/yazyk.html{% endif %}">{{ t.nav.language }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/religiya.html{% else %}/{{ lang }}/pages/religiya.html{% endif %}">{{ t.nav.religion }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/fotoarhiv.html{% else %}/{{ lang }}/pages/fotoarhiv.html{% endif %}">{{ t.nav.photos }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/karty.html{% else %}/{{ lang }}/pages/karty.html{% endif %}">{{ t.nav.maps }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/ustnye-predaniya.html{% else %}/{{ lang }}/pages/ustnye-predaniya.html{% endif %}">{{ t.nav.oral_traditions }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/bibliografiya.html{% else %}/{{ lang }}/pages/bibliografiya.html{% endif %}">{{ t.nav.bibliography }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/blog.html{% else %}/{{ lang }}/pages/blog.html{% endif %}">{{ t.nav.blog }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/o-proekte.html{% else %}/{{ lang }}/pages/o-proekte.html{% endif %}">{{ t.nav.about }}</a></li>
+        <li><a href="{% if lang == 'ru' %}/pages/kontakty.html{% else %}/{{ lang }}/pages/kontakty.html{% endif %}">{{ t.nav.contacts }}</a></li>
       </ul>
       <div class="mobile-theme-toggle">
-        <span>Тема:</span>
-        <button class="theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему">
+        <button class="theme-toggle" id="mobileThemeToggle" aria-label="{{ t.ui.toggle_theme }}">
           <span class="icon-sun">☀</span>
           <span class="icon-moon">☾</span>
         </button>
@@ -89,11 +135,11 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-col">
-          <p class="footer-brand">Сарт-калмыки Иссык-Куля</p>
-          <p class="footer-tagline">Цифровой архив культурного наследия</p>
+          <p class="footer-brand">{{ t.footer.brand }}</p>
+          <p class="footer-tagline">{{ t.footer.tagline }}</p>
         </div>
         <div class="footer-col">
-          <p class="footer-copyright">© {{ site.time | date: '%Y' }}</p>
+          <p class="footer-copyright">{{ t.footer.copyright }} {{ site.time | date: '%Y' }}</p>
           <p class="footer-meta">
             <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
           </p>

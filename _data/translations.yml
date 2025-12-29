@@ -1,0 +1,345 @@
+# ============================================
+# TRANSLATIONS FILE
+# Russian (ru) - Default, English (en), Kyrgyz (ky)
+# ============================================
+
+# Site-wide translations
+ru:
+  site:
+    title: "Сарт-калмыки Иссык-Куля"
+    description: "Культурное наследие сарт-калмыков (Сарт-ойратов) у г. Каракол, Иссык-Куль, Кыргызстан"
+    lang_name: "Русский"
+  
+  nav:
+    home: "Главная"
+    history: "История"
+    origin: "Происхождение"
+    culture: "Быт и культура"
+    economy: "Хозяйство"
+    language: "Язык"
+    religion: "Религия"
+    photos: "Фотоархив"
+    maps: "Карты"
+    oral_traditions: "Устные предания"
+    bibliography: "Библиография"
+    blog: "Блог"
+    about: "О проекте"
+    contacts: "Контакты"
+  
+  hero:
+    eyebrow: "Цифровой архив культурного наследия"
+    title_1: "Сарт-"
+    title_2: "калмыки"
+    subtitle: "Язык, устная история, фотографии и культурные практики ойратской общины Иссык-Куля."
+    btn_photos: "Фотоархив"
+    btn_about: "О проекте"
+    caption: "Сарт-калмычка. Архивное фото"
+  
+  stats:
+    expeditions: "Экспедиции"
+    photos: "Архивных фото"
+    words: "Слов в словаре"
+    stories: "Историй"
+  
+  sections:
+    title: "Разделы"
+    subtitle: "Исследуйте материалы о народе, сохранившем уникальный ойратский диалект и культуру в горах Тянь-Шаня."
+  
+  cards:
+    history_tag: "История"
+    history_title: "Исторические очерки"
+    history_excerpt: "Этногенез, пути переселения из Джунгарии в XVIII веке, хозяйственные практики, взаимодействия с соседними народами, период Российской империи и советские трансформации."
+    history_link: "Читать"
+    
+    language_tag: "Язык"
+    language_title: "Лексика и структура"
+    language_excerpt: "Словарь, фонетика, морфология, тексты: транскрипция и перевод. Уникальный ойратский диалект."
+    language_link: "Изучить"
+    
+    photos_tag: "Фото"
+    photos_title: "Фотоархив"
+    photos_excerpt: "Оцифровка семейных альбомов и полевых снимков 1920-х годов."
+    photos_link: "Смотреть"
+    
+    maps_tag: "Карты"
+    maps_title: "Пространственная память"
+    maps_excerpt: "Стоянки, сезонные маршруты, топонимика региона Каракол."
+    maps_link: "Открыть"
+    
+    oral_tag: "Устное"
+    oral_title: "Предания"
+    oral_excerpt: "Легенды, воспоминания, нарративы. Аудио, транскрипции, комментарии."
+    oral_link: "Слушать"
+    
+    biblio_tag: "Источники"
+    biblio_title: "Библиография"
+    biblio_excerpt: "Печатные и архивные источники, полевые записи, указатели."
+    biblio_link: "Читать"
+    
+    culture_tag: "Культура"
+    culture_title: "Быт"
+    
+    economy_tag: "Экономика"
+    economy_title: "Хозяйство"
+    
+    religion_tag: "Духовность"
+    religion_title: "Религия"
+    
+    blog_tag: "Новости"
+    blog_title: "Блог"
+  
+  origin:
+    eyebrow: "Происхождение"
+    title: "Потомки джунгарских ойратов"
+    text: "Сарт-калмыки — потомки ойратов Джунгарского ханства, переселившихся в долины Иссык-Куля в XVIII веке. Сохранив язык и традиции предков, они создали уникальную культуру на стыке кочевого и оседлого миров."
+    btn: "Подробнее"
+  
+  archive:
+    title: "Из архива"
+    subtitle: "Фотографии из экспедиций К.К. Юдахина, 1928 год. Борубаш и окрестности."
+    btn: "Весь фотоархив"
+  
+  quote:
+    text: "«Каждая единица материала проходит бережную атрибуцию и описывается с указанием источника»"
+    author: "— Принципы проекта"
+  
+  cta:
+    title: "Как помочь"
+    text: "Если у вас сохранились старые фотографии, записи рассказов, тетради со словарями или топонимические заметки — вы можете внести вклад в сохранение наследия."
+    btn: "Связаться с нами"
+  
+  footer:
+    brand: "Сарт-калмыки Иссык-Куля"
+    tagline: "Цифровой архив культурного наследия"
+    copyright: "©"
+  
+  ui:
+    toggle_theme: "Переключить тему"
+    open_menu: "Открыть меню"
+
+en:
+  site:
+    title: "Sart-Kalmyks of Issyk-Kul"
+    description: "Cultural heritage of the Sart-Kalmyks (Sart-Oirats) near Karakol, Issyk-Kul, Kyrgyzstan"
+    lang_name: "English"
+  
+  nav:
+    home: "Home"
+    history: "History"
+    origin: "Origin"
+    culture: "Life & Culture"
+    economy: "Economy"
+    language: "Language"
+    religion: "Religion"
+    photos: "Photo Archive"
+    maps: "Maps"
+    oral_traditions: "Oral Traditions"
+    bibliography: "Bibliography"
+    blog: "Blog"
+    about: "About"
+    contacts: "Contacts"
+  
+  hero:
+    eyebrow: "Digital Cultural Heritage Archive"
+    title_1: "Sart-"
+    title_2: "Kalmyks"
+    subtitle: "Language, oral history, photographs, and cultural practices of the Oirat community of Issyk-Kul."
+    btn_photos: "Photo Archive"
+    btn_about: "About Project"
+    caption: "Sart-Kalmyk woman. Archive photo"
+  
+  stats:
+    expeditions: "Expeditions"
+    photos: "Archive Photos"
+    words: "Dictionary Words"
+    stories: "Stories"
+  
+  sections:
+    title: "Sections"
+    subtitle: "Explore materials about the people who preserved their unique Oirat dialect and culture in the Tian Shan mountains."
+  
+  cards:
+    history_tag: "History"
+    history_title: "Historical Essays"
+    history_excerpt: "Ethnogenesis, migration routes from Dzungaria in the 18th century, economic practices, interactions with neighboring peoples, the Russian Empire period, and Soviet transformations."
+    history_link: "Read"
+    
+    language_tag: "Language"
+    language_title: "Vocabulary & Structure"
+    language_excerpt: "Dictionary, phonetics, morphology, texts: transcription and translation. A unique Oirat dialect."
+    language_link: "Study"
+    
+    photos_tag: "Photos"
+    photos_title: "Photo Archive"
+    photos_excerpt: "Digitization of family albums and field photographs from the 1920s."
+    photos_link: "View"
+    
+    maps_tag: "Maps"
+    maps_title: "Spatial Memory"
+    maps_excerpt: "Camps, seasonal routes, toponymy of the Karakol region."
+    maps_link: "Open"
+    
+    oral_tag: "Oral"
+    oral_title: "Traditions"
+    oral_excerpt: "Legends, memories, narratives. Audio, transcriptions, commentary."
+    oral_link: "Listen"
+    
+    biblio_tag: "Sources"
+    biblio_title: "Bibliography"
+    biblio_excerpt: "Printed and archival sources, field notes, indexes."
+    biblio_link: "Read"
+    
+    culture_tag: "Culture"
+    culture_title: "Daily Life"
+    
+    economy_tag: "Economy"
+    economy_title: "Economy"
+    
+    religion_tag: "Spirituality"
+    religion_title: "Religion"
+    
+    blog_tag: "News"
+    blog_title: "Blog"
+  
+  origin:
+    eyebrow: "Origin"
+    title: "Descendants of Dzungar Oirats"
+    text: "The Sart-Kalmyks are descendants of the Oirats of the Dzungar Khanate who migrated to the Issyk-Kul valleys in the 18th century. Preserving the language and traditions of their ancestors, they created a unique culture at the crossroads of nomadic and settled worlds."
+    btn: "Learn More"
+  
+  archive:
+    title: "From the Archive"
+    subtitle: "Photographs from K.K. Yudakhin's expeditions, 1928. Borubash and surroundings."
+    btn: "Full Photo Archive"
+  
+  quote:
+    text: "\"Each piece of material undergoes careful attribution and is described with source indication\""
+    author: "— Project Principles"
+  
+  cta:
+    title: "How to Help"
+    text: "If you have old photographs, recorded stories, dictionary notebooks, or toponymic notes — you can contribute to preserving this heritage."
+    btn: "Contact Us"
+  
+  footer:
+    brand: "Sart-Kalmyks of Issyk-Kul"
+    tagline: "Digital Cultural Heritage Archive"
+    copyright: "©"
+  
+  ui:
+    toggle_theme: "Toggle theme"
+    open_menu: "Open menu"
+
+ky:
+  site:
+    title: "Ысык-Көлдүн сарт-калмактары"
+    description: "Каракол шаарынын жанындагы сарт-калмактардын (сарт-ойроттордун) маданий мурасы, Ысык-Көл, Кыргызстан"
+    lang_name: "Кыргызча"
+  
+  nav:
+    home: "Башкы бет"
+    history: "Тарых"
+    origin: "Келип чыгуусу"
+    culture: "Турмуш жана маданият"
+    economy: "Чарба"
+    language: "Тил"
+    religion: "Дин"
+    photos: "Сүрөт архиви"
+    maps: "Карталар"
+    oral_traditions: "Оозеки уламыштар"
+    bibliography: "Библиография"
+    blog: "Блог"
+    about: "Долбоор жөнүндө"
+    contacts: "Байланыштар"
+  
+  hero:
+    eyebrow: "Маданий мурастын санариптик архиви"
+    title_1: "Сарт-"
+    title_2: "калмактар"
+    subtitle: "Ысык-Көлдүн ойрот коомунун тили, оозеки тарыхы, сүрөттөрү жана маданий салттары."
+    btn_photos: "Сүрөт архиви"
+    btn_about: "Долбоор жөнүндө"
+    caption: "Сарт-калмак аялы. Архивдик сүрөт"
+  
+  stats:
+    expeditions: "Экспедициялар"
+    photos: "Архивдик сүрөттөр"
+    words: "Сөздүктөгү сөздөр"
+    stories: "Окуялар"
+  
+  sections:
+    title: "Бөлүмдөр"
+    subtitle: "Тянь-Шань тоолорунда уникалдуу ойрот диалектисин жана маданиятын сактап калган элдин материалдарын изилдеңиз."
+  
+  cards:
+    history_tag: "Тарых"
+    history_title: "Тарыхый очерктер"
+    history_excerpt: "Этногенез, XVIII кылымда Жуңгариядан көчүп келүү жолдору, чарба иштери, кошуна элдер менен мамилелер, Россия империясынын мезгили жана советтик өзгөрүүлөр."
+    history_link: "Окуу"
+    
+    language_tag: "Тил"
+    language_title: "Лексика жана түзүлүшү"
+    language_excerpt: "Сөздүк, фонетика, морфология, тексттер: транскрипция жана котормо. Уникалдуу ойрот диалектиси."
+    language_link: "Үйрөнүү"
+    
+    photos_tag: "Сүрөттөр"
+    photos_title: "Сүрөт архиви"
+    photos_excerpt: "1920-жылдардагы үй-бүлөлүк альбомдорду жана талаа сүрөттөрүн санариптештирүү."
+    photos_link: "Көрүү"
+    
+    maps_tag: "Карталар"
+    maps_title: "Мейкиндик эс тутуму"
+    maps_excerpt: "Конуштар, сезондук маршруттар, Каракол аймагынын топонимикасы."
+    maps_link: "Ачуу"
+    
+    oral_tag: "Оозеки"
+    oral_title: "Уламыштар"
+    oral_excerpt: "Легендалар, эскерүүлөр, баяндар. Аудио, транскрипциялар, комментарийлер."
+    oral_link: "Угуу"
+    
+    biblio_tag: "Булактар"
+    biblio_title: "Библиография"
+    biblio_excerpt: "Басма жана архивдик булактар, талаа жазуулары, көрсөткүчтөр."
+    biblio_link: "Окуу"
+    
+    culture_tag: "Маданият"
+    culture_title: "Турмуш"
+    
+    economy_tag: "Экономика"
+    economy_title: "Чарба"
+    
+    religion_tag: "Руханият"
+    religion_title: "Дин"
+    
+    blog_tag: "Жаңылыктар"
+    blog_title: "Блог"
+  
+  origin:
+    eyebrow: "Келип чыгуусу"
+    title: "Жуңгар ойроттордун урпактары"
+    text: "Сарт-калмактар — XVIII кылымда Ысык-Көл өрөөндөрүнө көчүп келген Жуңгар хандыгынын ойроттордун урпактары. Ата-бабаларынын тилин жана салттарын сактап, алар көчмөн жана отурукташкан дүйнөлөрдүн кесилишинде уникалдуу маданият жаратышкан."
+    btn: "Кененирээк"
+  
+  archive:
+    title: "Архивден"
+    subtitle: "К.К. Юдахиндин экспедицияларынан сүрөттөр, 1928-жыл. Борубаш жана айланасы."
+    btn: "Толук сүрөт архиви"
+  
+  quote:
+    text: "«Ар бир материал кылдат атрибуция өтүп, булагын көрсөтүү менен сүрөттөлөт»"
+    author: "— Долбоордун принциптери"
+  
+  cta:
+    title: "Кантип жардам берүү керек"
+    text: "Эгер сизде эски сүрөттөр, жазылган аңгемелер, сөздүк дептерлери же топонимикалык жазуулар сакталып калган болсо — сиз мурасты сактоого салым кошо аласыз."
+    btn: "Биз менен байланышыңыз"
+  
+  footer:
+    brand: "Ысык-Көлдүн сарт-калмактары"
+    tagline: "Маданий мурастын санариптик архиви"
+    copyright: "©"
+  
+  ui:
+    toggle_theme: "Теманы которуу"
+    open_menu: "Менюну ачуу"
+
