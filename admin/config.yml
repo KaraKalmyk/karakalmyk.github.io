@@ -1,11 +1,20 @@
 backend:
-  name: github
-  repo: karakalmyk/karakalmyk.github.io  # Replace with your actual GitHub username/repo
+  name: git-gateway
   branch: main
-  # For GitHub Pages, we need to set up OAuth through a service
-  # Option 1: Use Netlify Identity (free, requires Netlify account)
-  # Option 2: Use external OAuth provider
-  # See setup instructions below
+  #
+  # ═══════════════════════════════════════════════════════════════════
+  # SETUP REQUIRED: Netlify Identity + Git Gateway
+  # ═══════════════════════════════════════════════════════════════════
+  #
+  # 1. Go to https://app.netlify.com and sign up/login with GitHub
+  # 2. "Add new site" → "Import an existing project" → Select your repo
+  # 3. Build settings: command = "jekyll build", directory = "_site"
+  # 4. After deploy, go to: Site configuration → Identity → Enable Identity
+  # 5. Then go to: Site configuration → Identity → Services → Enable Git Gateway
+  # 6. Invite yourself: Identity → Invite users → Enter your email
+  # 7. Access admin at: https://YOUR-SITE.netlify.app/admin/
+  #
+  # Note: The admin panel will work on your Netlify URL, not GitHub Pages URL
 
 # Media files storage
 media_folder: "photos/uploads"
