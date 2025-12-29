@@ -66,6 +66,7 @@
       </nav>
 
       <div class="sidebar-footer">
+        <a href="/admin/" class="admin-link" title="Admin Panel">⚙</a>
         <button class="theme-toggle" id="themeToggle" aria-label="{{ t.ui.toggle_theme }}">
           <span class="icon-sun">☀</span>
           <span class="icon-moon">☾</span>
@@ -149,6 +150,19 @@
   </footer>
 
   <script src="{{ '/assets/js/moma-main.js' | relative_url }}" defer></script>
+
+  <!-- Netlify Identity Widget for CMS authentication -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
 

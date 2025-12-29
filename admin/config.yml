@@ -1,0 +1,173 @@
+backend:
+  name: github
+  repo: karakalmyk/karakalmyk.github.io  # Replace with your actual GitHub username/repo
+  branch: main
+  # For GitHub Pages, we need to set up OAuth through a service
+  # Option 1: Use Netlify Identity (free, requires Netlify account)
+  # Option 2: Use external OAuth provider
+  # See setup instructions below
+
+# Media files storage
+media_folder: "photos/uploads"
+public_folder: "/photos/uploads"
+
+# Site URL for previews
+site_url: https://karakalmyk.github.io
+display_url: https://karakalmyk.github.io
+logo_url: /assets/images/favicon.png
+
+# Locale
+locale: "ru"
+
+# Editorial workflow (optional - enables draft/review/publish)
+# publish_mode: editorial_workflow
+
+# Slug settings
+slug:
+  encoding: "unicode"
+  clean_accents: false
+  sanitize_replacement: "-"
+
+# Collections (content types you can edit)
+collections:
+  # Blog posts
+  - name: "blog"
+    label: "Блог / Blog"
+    label_singular: "Статья"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "moma" }
+      - { label: "Заголовок / Title", name: "title", widget: "string" }
+      - { label: "Дата / Date", name: "date", widget: "datetime" }
+      - { label: "Язык / Language", name: "lang", widget: "select", options: ["ru", "en", "ky"], default: "ru" }
+      - { label: "Главное изображение / Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Описание / Description", name: "excerpt", widget: "text", required: false }
+      - { label: "Теги / Tags", name: "tags", widget: "list", required: false }
+      - { label: "Содержание / Content", name: "body", widget: "markdown" }
+
+  # Russian pages
+  - name: "pages_ru"
+    label: "Страницы (Русский)"
+    label_singular: "Страница"
+    folder: "pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "moma" }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "URL (permalink)", name: "permalink", widget: "string" }
+      - { label: "Язык", name: "lang", widget: "hidden", default: "ru" }
+      - { label: "Содержание", name: "body", widget: "markdown" }
+
+  # English pages
+  - name: "pages_en"
+    label: "Pages (English)"
+    label_singular: "Page"
+    folder: "en/pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "moma" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL (permalink)", name: "permalink", widget: "string" }
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Kyrgyz pages
+  - name: "pages_ky"
+    label: "Барактар (Кыргызча)"
+    label_singular: "Барак"
+    folder: "ky/pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "moma" }
+      - { label: "Аталышы", name: "title", widget: "string" }
+      - { label: "URL (permalink)", name: "permalink", widget: "string" }
+      - { label: "Тил", name: "lang", widget: "hidden", default: "ky" }
+      - { label: "Мазмуну", name: "body", widget: "markdown" }
+
+  # Data files (photos, vocabulary, settings)
+  - name: "data"
+    label: "Данные / Data"
+    files:
+      # Photo archive metadata
+      - name: "photos"
+        label: "Фотоархив / Photo Archive"
+        file: "_data/photos.yml"
+        fields:
+          - label: "Фотографии / Photos"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Файл / File", name: "file", widget: "string" }
+              - { label: "Название / Title", name: "title", widget: "string" }
+              - { label: "Примерная дата / Approx. Date", name: "approx_date", widget: "string", required: false }
+              - { label: "Место / Place", name: "place", widget: "string", required: false }
+              - { label: "Источник / Source", name: "source", widget: "string", required: false }
+              - { label: "Люди на фото / People", name: "people", widget: "list", required: false }
+              - { label: "Заметки / Notes", name: "notes", widget: "text", required: false }
+
+      # Vocabulary data
+      - name: "vocabulary"
+        label: "Словарь / Vocabulary"
+        file: "_data/vocabulary.yml"
+        fields:
+          - label: "Слова / Words"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Сарт-калмыцкий / Sart-Kalmyk", name: "sart_kalmyk", widget: "string" }
+              - { label: "Русский / Russian", name: "russian", widget: "string" }
+              - { label: "English", name: "english", widget: "string", required: false }
+              - { label: "Кыргызча", name: "kyrgyz", widget: "string", required: false }
+              - { label: "Категория / Category", name: "category", widget: "string", required: false }
+              - { label: "Примечание / Note", name: "note", widget: "text", required: false }
+
+  # Site settings
+  - name: "settings"
+    label: "Настройки / Settings"
+    files:
+      - name: "translations"
+        label: "Переводы интерфейса / UI Translations"
+        file: "_data/translations.yml"
+        fields:
+          - label: "Русский (ru)"
+            name: "ru"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Site"
+                name: "site"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "English (en)"
+            name: "en"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Site"
+                name: "site"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "Кыргызча (ky)"
+            name: "ky"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Site"
+                name: "site"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+

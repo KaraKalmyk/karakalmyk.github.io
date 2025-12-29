@@ -317,6 +317,30 @@ html[data-theme="dark"] .logo:hover {
   margin-top: auto;
   padding-top: var(--space-6);
   border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.admin-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.admin-link:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  opacity: 1;
 }
 
 .theme-toggle {
