@@ -180,18 +180,17 @@
     // Handle Netlify Identity authentication tokens from URL hash
     // This handles recovery_token, invite_token, confirmation_token, etc.
     if (window.netlifyIdentity) {
-      // Check if the URL contains an auth token that needs handling
-      var hash = window.location.hash;
-      if (hash && (hash.includes('recovery_token=') || 
-                   hash.includes('invite_token=') || 
-                   hash.includes('confirmation_token=') ||
-                   hash.includes('email_change_token='))) {
-        // Open the Netlify Identity widget to handle the token
-        window.netlifyIdentity.open();
-      }
-      
-      // Redirect to admin after login
       window.netlifyIdentity.on("init", function(user) {
+        // Check if the URL contains an auth token that needs handling
+        // Use regex to match tokens at parameter boundaries (after # or &)
+        var hash = window.location.hash;
+        var tokenPattern = /[#&](recovery_token|invite_token|confirmation_token|email_change_token)=/;
+        if (hash && tokenPattern.test(hash)) {
+          // Open the Netlify Identity widget to handle the token
+          window.netlifyIdentity.open();
+        }
+        
+        // Redirect to admin after login
         if (!user) {
           window.netlifyIdentity.on("login", function() {
             document.location.href = "/admin/";
