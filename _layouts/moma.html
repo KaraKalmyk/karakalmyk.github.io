@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/moma-style.css' | relative_url }}" />
   <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}" />
+  <!-- Netlify Identity Widget for authentication -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {% seo %}
 </head>
 <body>
@@ -175,10 +177,23 @@
 
   <!-- Netlify Identity Widget for CMS authentication -->
   <script>
+    // Handle Netlify Identity authentication tokens from URL hash
+    // This handles recovery_token, invite_token, confirmation_token, etc.
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
+      // Check if the URL contains an auth token that needs handling
+      var hash = window.location.hash;
+      if (hash && (hash.includes('recovery_token=') || 
+                   hash.includes('invite_token=') || 
+                   hash.includes('confirmation_token=') ||
+                   hash.includes('email_change_token='))) {
+        // Open the Netlify Identity widget to handle the token
+        window.netlifyIdentity.open();
+      }
+      
+      // Redirect to admin after login
+      window.netlifyIdentity.on("init", function(user) {
         if (!user) {
-          window.netlifyIdentity.on("login", () => {
+          window.netlifyIdentity.on("login", function() {
             document.location.href = "/admin/";
           });
         }
