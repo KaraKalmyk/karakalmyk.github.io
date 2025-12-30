@@ -1044,6 +1044,14 @@ html[data-theme="dark"] .icon-moon { display: inline; }
     aspect-ratio: 4 / 3;
   }
 
+  /* Fallback for older browsers that don't support aspect-ratio */
+  @supports not (aspect-ratio: 4 / 3) {
+    .hero-banner-bg {
+      padding-bottom: 75%; /* 3/4 = 0.75 = 75% */
+      height: 0;
+    }
+  }
+
   .hero-banner-bg img {
     position: absolute;
     top: 0;

@@ -24,7 +24,7 @@ backend:
   # 2. "Add new site" → "Import an existing project" → Select your repo
   # 3. Build settings: command = "jekyll build", directory = "_site"
   # 4. After deploy, go to: Site configuration → Identity → Enable Identity
-  # 5. IMPORTANT: Set registration to "Invite only" to prevent public signups!
+  # 5. IMPORTANT: Set registration to "Invite only" to prevent public sign-ups!
   #    Go to: Identity → Settings → Registration → Invite only
   # 6. Then go to: Site configuration → Identity → Services → Enable Git Gateway
   # 7. Invite yourself: Identity → Invite users → Enter your email
