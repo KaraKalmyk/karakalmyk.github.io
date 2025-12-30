@@ -1,4 +1,4 @@
-f o---
+---
 layout: moma
 title: "Долбоор жөнүндө"
 lang: ky
