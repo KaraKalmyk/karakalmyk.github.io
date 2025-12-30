@@ -15,7 +15,7 @@ permalink: /en/pages/istoriya.html
     <p class="page-meta">Historical overview of the Sart-Kalmyks (Sart-Oirats) in the Issyk-Kul region</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Thematic Sections (Plan)
 

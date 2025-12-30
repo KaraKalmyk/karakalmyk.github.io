@@ -15,7 +15,7 @@ permalink: /en/pages/blog.html
     <p class="page-meta">Materials tagged as blog posts</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 <p style="font-size: var(--text-sm); color: var(--text-muted);">Tip: To include a page in the blog, add <code>blog: true</code> to its YAML front matter and specify <code>title:</code> and (optionally) <code>date:</code>.</p>
 

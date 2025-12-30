@@ -15,7 +15,7 @@ permalink: /en/pages/byt-i-kultura.html
     <p class="page-meta">Ancestral heritage in the modern life of the Sart-Kalmyks</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 The culture of the Sart-Kalmyks is a unique interweaving of their nomadic Mongolian past and the traditions of the Central Asian peoples they have lived alongside for over a century and a half. Let's look into their homes, get acquainted with their cuisine, and learn how their ancestral heritage continues to live in their everyday life today.
 

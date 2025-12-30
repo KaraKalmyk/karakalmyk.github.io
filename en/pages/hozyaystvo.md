@@ -15,7 +15,7 @@ permalink: /en/pages/hozyaystvo.html
     <p class="page-meta">From endless nomadic lands to modern farms</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 Livestock breeding has always been at the heart of the Sart-Kalmyk way of life. They are descendants of nomads, and this deep connection with the land and animals defines their culture today, albeit in completely new forms.
 

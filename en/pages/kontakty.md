@@ -15,7 +15,7 @@ permalink: /en/pages/kontakty.html
     <p class="page-meta">Get in touch for collaboration or questions</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 If you would like to share materials, clarify information, or propose collaboration — please write to us.
 

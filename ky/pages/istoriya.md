@@ -15,7 +15,7 @@ permalink: /ky/pages/istoriya.html
     <p class="page-meta">Ысык-Көл аймагындагы сарт-калмактардын (сарт-ойроттордун) тарыхый серепи</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Тематикалык бөлүктөр (план)
 

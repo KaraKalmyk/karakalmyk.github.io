@@ -15,7 +15,7 @@ permalink: /ky/pages/fotoarhiv.html
     <p class="page-meta">Санарип тарыхый сүрөттөр, үй-бүлөлүк альбомдор жана экспедиция сүрөттөрү</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Галерея
 
@@ -43,7 +43,7 @@ permalink: /ky/pages/fotoarhiv.html
     {% endfor %}
   </div>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
   <p style="font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-6);">
     Жалпы сүрөттөр: {{ photos.size }}
   </p>

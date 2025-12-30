@@ -15,7 +15,7 @@ permalink: /en/pages/proiskhozhdenie.html
     <p class="page-meta">The origin story of a unique people</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 The Sart-Kalmyks are an amazing people whose history is full of mysteries. They have no written heritage of their own, so scholars and local historians have to piece together their past bit by bit, relying on oral traditions and scarce historical documents.
 

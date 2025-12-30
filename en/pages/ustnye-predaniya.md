@@ -15,7 +15,7 @@ permalink: /en/pages/ustnye-predaniya.html
     <p class="page-meta">Stories, legends, songs, prayers, and elements of intangible cultural heritage</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 A section for publishing oral stories, legends, songs, prayers, and other elements of intangible cultural heritage.
 

@@ -15,7 +15,7 @@ permalink: /ky/pages/blog.html
     <p class="page-meta">Блог-пост катары белгиленген материалдар</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 <p style="font-size: var(--text-sm); color: var(--text-muted);">Кеңеш: бетти блогго киргизүү үчүн, анын YAML фронт маттерине <code>blog: true</code> кошуңуз жана <code>title:</code> жана (каалоо боюнча) <code>date:</code> көрсөтүңүз.</p>
 

@@ -11,7 +11,7 @@ permalink: /pages/karty.html
     <p class="page-meta">Статичные и интерактивные карты региона</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Идеи
 

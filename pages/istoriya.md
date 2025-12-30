@@ -11,7 +11,7 @@ permalink: /pages/istoriya.html
     <p class="page-meta">Исторический обзор сарт-калмыков (сарт-ойратов) в регионе Иссык-Куля</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Тематические блоки (план)
 

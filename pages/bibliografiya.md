@@ -11,7 +11,7 @@ permalink: /pages/bibliografiya.html
     <p class="page-meta">Список публикаций, архивных дел и источников по теме сарт-калмыков</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 Черновой список публикаций, архивных дел и источников по теме сарт-калмыков (сарт-ойратов) Иссык-Куля.
 

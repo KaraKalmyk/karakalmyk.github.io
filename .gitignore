@@ -7,4 +7,5 @@ vendor/
 .DS_Store
 .idea/
 *.log
+Gemfile.lock
 

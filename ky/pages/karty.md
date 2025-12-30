@@ -15,7 +15,7 @@ permalink: /ky/pages/karty.html
     <p class="page-meta">Аймактын статикалык жана интерактивдүү карталары</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Идеялар
 

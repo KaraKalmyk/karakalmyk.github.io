@@ -15,7 +15,7 @@ permalink: /en/pages/bibliografiya.html
     <p class="page-meta">List of publications, archival records, and sources on the Sart-Kalmyks</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 Draft list of publications, archival records, and sources on the Sart-Kalmyks (Sart-Oirats) of Issyk-Kul.
 
