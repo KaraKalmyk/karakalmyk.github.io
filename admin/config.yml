@@ -3,18 +3,35 @@ backend:
   branch: main
   #
   # ═══════════════════════════════════════════════════════════════════
+  # SECURITY NOTE: Authentication Required
+  # ═══════════════════════════════════════════════════════════════════
+  #
+  # By default, users can visit /admin/ but CANNOT make changes without
+  # proper authentication. The admin panel requires OAuth setup to work.
+  #
+  # Without Netlify Identity or OAuth configured:
+  # - Visitors can see the admin interface
+  # - NO ONE can log in or make changes to the site
+  # - The CMS will show "Error loading the CMS configuration"
+  #
+  # ═══════════════════════════════════════════════════════════════════
   # SETUP REQUIRED: Netlify Identity + Git Gateway
   # ═══════════════════════════════════════════════════════════════════
+  #
+  # To enable admin access for authorized users only:
   #
   # 1. Go to https://app.netlify.com and sign up/login with GitHub
   # 2. "Add new site" → "Import an existing project" → Select your repo
   # 3. Build settings: command = "jekyll build", directory = "_site"
   # 4. After deploy, go to: Site configuration → Identity → Enable Identity
-  # 5. Then go to: Site configuration → Identity → Services → Enable Git Gateway
-  # 6. Invite yourself: Identity → Invite users → Enter your email
-  # 7. Access admin at: https://YOUR-SITE.netlify.app/admin/
+  # 5. IMPORTANT: Set registration to "Invite only" to prevent public signups!
+  #    Go to: Identity → Settings → Registration → Invite only
+  # 6. Then go to: Site configuration → Identity → Services → Enable Git Gateway
+  # 7. Invite yourself: Identity → Invite users → Enter your email
+  # 8. Access admin at: https://YOUR-SITE.netlify.app/admin/
   #
   # Note: The admin panel will work on your Netlify URL, not GitHub Pages URL
+  # Only users you invite can log in and make changes!
 
 # Media files storage
 media_folder: "photos/uploads"

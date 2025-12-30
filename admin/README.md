@@ -2,6 +2,18 @@
 
 This site includes an admin panel powered by [Decap CMS](https://decapcms.org/) (formerly Netlify CMS).
 
+## Security
+
+**Important:** The admin panel requires authentication to function. Without proper OAuth setup:
+- Users can visit `/admin/` but will see an error or login prompt
+- **No one can make changes** to the site without being authenticated
+- The backend will reject all unauthorized requests
+
+To restrict who can access the admin panel:
+1. Set up Netlify Identity (see below)
+2. Set registration to **"Invite only"** in Netlify Identity settings
+3. Only invite trusted users via email
+
 ## Access
 
 Admin panel URL: `https://karakalmyk.github.io/admin/`
@@ -15,14 +27,17 @@ Since GitHub Pages is a static host, you need to set up OAuth authentication. Th
 1. Create a free account at [Netlify](https://netlify.com)
 2. Connect your GitHub repository to Netlify
 3. Go to **Site settings** → **Identity** → **Enable Identity**
-4. Go to **Settings** → **Identity** → **Services** → **Enable Git Gateway**
-5. Update `admin/config.yml`:
+4. **IMPORTANT:** Go to **Identity** → **Settings** → **Registration** → Set to **"Invite only"**
+   - This prevents random people from signing up to your admin panel!
+5. Go to **Settings** → **Identity** → **Services** → **Enable Git Gateway**
+6. Update `admin/config.yml` (already configured):
    ```yaml
    backend:
      name: git-gateway
      branch: main
    ```
-6. Invite yourself as a user in Netlify Identity
+7. Invite yourself: **Identity** → **Invite users** → Enter your email
+8. Only invited users will be able to log in and edit content
 
 ### Option 2: Use External OAuth Provider
 
