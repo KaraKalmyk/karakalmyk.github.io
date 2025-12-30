@@ -7,10 +7,796 @@
   <title>Админ-панель | Сарт-калмыки</title>
   <!-- Netlify Identity Widget for authentication -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f7f7f7;
+      --text-primary: #000000;
+      --text-secondary: #525252;
+      --border-color: #d4d4d4;
+      --accent: #2563eb;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-secondary);
+      min-height: 100vh;
+    }
+    
+    .admin-header {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .admin-header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .admin-header a {
+      color: var(--bg-primary);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    
+    .admin-header a:hover { opacity: 1; }
+    
+    .admin-tabs {
+      display: flex;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0 2rem;
+    }
+    
+    .admin-tab {
+      padding: 1rem 1.5rem;
+      border: none;
+      background: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    
+    .admin-tab:hover { color: var(--text-primary); }
+    
+    .admin-tab.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+    
+    .admin-content {
+      display: none;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .admin-content.active { display: block; }
+    
+    .info-box {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .info-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .info-box p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    
+    .info-box ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+    
+    .btn:hover { opacity: 0.8; }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      opacity: 1;
+    }
+    
+    .editor-container {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .editor-toolbar {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+    
+    .toolbar-btn {
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .toolbar-btn:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+    
+    .editor-fields {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .field-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    
+    .field-group input,
+    .field-group select {
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    
+    .field-group input:focus,
+    .field-group select:focus,
+    .editor-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .editor-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 1024px) {
+      .editor-main {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .editor-textarea-container {
+      border-right: 1px solid var(--border-color);
+    }
+    
+    .editor-label {
+      padding: 0.75rem 1rem;
+      background: var(--bg-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+    }
+    
+    .editor-textarea {
+      width: 100%;
+      min-height: 500px;
+      padding: 1.5rem;
+      border: none;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      resize: vertical;
+    }
+    
+    .preview-container {
+      background: var(--bg-primary);
+    }
+    
+    .preview-content {
+      padding: 1.5rem;
+      min-height: 500px;
+      line-height: 1.7;
+    }
+    
+    .preview-content h1 { font-size: 2rem; margin: 0 0 1rem; }
+    .preview-content h2 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; }
+    .preview-content h3 { font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+    .preview-content p { margin-bottom: 1rem; color: var(--text-secondary); }
+    .preview-content ul, .preview-content ol { margin: 1rem 0; padding-left: 1.5rem; }
+    .preview-content li { margin-bottom: 0.5rem; color: var(--text-secondary); }
+    .preview-content ul li { list-style: disc; }
+    .preview-content ol li { list-style: decimal; }
+    .preview-content blockquote {
+      margin: 1rem 0;
+      padding: 1rem;
+      border-left: 4px solid var(--text-primary);
+      background: var(--bg-secondary);
+      font-style: italic;
+    }
+    .preview-content code {
+      background: var(--bg-secondary);
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.85em;
+    }
+    .preview-content pre {
+      background: var(--bg-secondary);
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .preview-content pre code {
+      background: none;
+      padding: 0;
+    }
+    .preview-content img {
+      max-width: 100%;
+      margin: 1rem 0;
+    }
+    .preview-content a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .preview-content strong { font-weight: 600; color: var(--text-primary); }
+    .preview-content em { font-style: italic; }
+    
+    .editor-actions {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .file-list {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .file-list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .file-list-header h3 {
+      font-size: 1rem;
+    }
+    
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    
+    .file-item:hover {
+      background: var(--bg-secondary);
+    }
+    
+    .file-item:last-child {
+      border-bottom: none;
+    }
+    
+    .file-info h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .file-info p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    .file-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .notice-title {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 0.5rem;
+    }
+    
+    .notice p {
+      color: #78350f;
+      font-size: 0.9rem;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .admin-tabs { overflow-x: auto; }
+      .editor-actions { flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Decap CMS -->
+  <header class="admin-header">
+    <h1>⚙ Админ-панель</h1>
+    <a href="/">← Вернуться на сайт</a>
+  </header>
+  
+  <nav class="admin-tabs">
+    <button class="admin-tab active" data-tab="overview">Обзор</button>
+    <button class="admin-tab" data-tab="editor">Редактор</button>
+    <button class="admin-tab" data-tab="pages">Страницы</button>
+    <button class="admin-tab" data-tab="posts">Блог</button>
+    <button class="admin-tab" data-tab="cms">Decap CMS</button>
+  </nav>
+  
+  <!-- Overview Tab -->
+  <div class="admin-content active" id="tab-overview">
+    <div class="info-box">
+      <h2>Добро пожаловать в админ-панель</h2>
+      <p>Здесь вы можете редактировать содержимое сайта. Выберите раздел для работы:</p>
+      <ul>
+        <li><strong>Редактор</strong> — создание и редактирование статей в формате Markdown</li>
+        <li><strong>Страницы</strong> — управление страницами сайта</li>
+        <li><strong>Блог</strong> — управление записями блога</li>
+        <li><strong>Decap CMS</strong> — полноценная CMS (требует настройки Netlify)</li>
+      </ul>
+    </div>
+    
+    <div class="notice">
+      <div class="notice-title">📝 Как редактировать контент</div>
+      <p>Используйте встроенный редактор Markdown для создания и редактирования статей. После сохранения скопируйте содержимое и создайте файл в репозитории GitHub, либо используйте Decap CMS для автоматической публикации.</p>
+    </div>
+    
+    <div class="grid-2">
+      <div class="info-box">
+        <h2>📂 Структура файлов</h2>
+        <ul>
+          <li><code>pages/</code> — Русские страницы</li>
+          <li><code>en/pages/</code> — Английские страницы</li>
+          <li><code>ky/pages/</code> — Кыргызские страницы</li>
+          <li><code>_posts/</code> — Записи блога</li>
+          <li><code>_data/</code> — Данные (фото, словарь)</li>
+        </ul>
+      </div>
+      
+      <div class="info-box">
+        <h2>🔗 Быстрые ссылки</h2>
+        <ul>
+          <li><a href="https://github.com/KaraKalmyk/karakalmyk.github.io" target="_blank">GitHub репозиторий</a></li>
+          <li><a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/pages" target="_blank">Редактировать страницы на GitHub</a></li>
+          <li><a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/_posts" target="_blank">Редактировать блог на GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Editor Tab -->
+  <div class="admin-content" id="tab-editor">
+    <div class="editor-container">
+      <div class="editor-toolbar">
+        <button class="toolbar-btn" onclick="insertMarkdown('**', '**')" title="Жирный">B</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('*', '*')" title="Курсив"><em>I</em></button>
+        <button class="toolbar-btn" onclick="insertMarkdown('# ', '')" title="Заголовок 1">H1</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('## ', '')" title="Заголовок 2">H2</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('### ', '')" title="Заголовок 3">H3</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('- ', '')" title="Список">• List</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('1. ', '')" title="Нумерованный список">1. List</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('[', '](url)')" title="Ссылка">🔗</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('![alt](', ')')" title="Изображение">🖼</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('> ', '')" title="Цитата">❝</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('`', '`')" title="Код">Code</button>
+        <button class="toolbar-btn" onclick="insertMarkdown('```\n', '\n```')" title="Блок кода">```</button>
+      </div>
+      
+      <div class="editor-fields">
+        <div class="grid-2">
+          <div class="field-group">
+            <label for="page-title">Заголовок страницы</label>
+            <input type="text" id="page-title" placeholder="Введите заголовок" oninput="updatePreview()">
+          </div>
+          <div class="field-group">
+            <label for="page-lang">Язык</label>
+            <select id="page-lang">
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+              <option value="ky">Кыргызча</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="page-permalink">Permalink (URL)</label>
+          <input type="text" id="page-permalink" placeholder="/pages/название-страницы.html" oninput="updatePreview()">
+        </div>
+      </div>
+      
+      <div class="editor-main">
+        <div class="editor-textarea-container">
+          <div class="editor-label">Markdown</div>
+          <textarea class="editor-textarea" id="markdown-editor" placeholder="Начните писать в формате Markdown..." oninput="updatePreview()"></textarea>
+        </div>
+        <div class="preview-container">
+          <div class="editor-label">Предпросмотр</div>
+          <div class="preview-content" id="preview"></div>
+        </div>
+      </div>
+      
+      <div class="editor-actions">
+        <button class="btn" onclick="copyFrontmatter()">📋 Копировать с front matter</button>
+        <button class="btn btn-secondary" onclick="downloadFile()">💾 Скачать .md файл</button>
+        <button class="btn btn-secondary" onclick="clearEditor()">🗑 Очистить</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pages Tab -->
+  <div class="admin-content" id="tab-pages">
+    <div class="notice">
+      <div class="notice-title">📁 Редактирование страниц</div>
+      <p>Для редактирования существующих страниц перейдите на GitHub и отредактируйте файлы напрямую, или используйте Decap CMS.</p>
+    </div>
+    
+    <div class="file-list">
+      <div class="file-list-header">
+        <h3>Русские страницы</h3>
+        <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/pages" target="_blank" class="btn btn-secondary">Открыть на GitHub</a>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/edit/main/pages/istoriya.md', '_blank')">
+        <div class="file-info">
+          <h4>История</h4>
+          <p>pages/istoriya.md</p>
+        </div>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/edit/main/pages/proiskhozhdenie.md', '_blank')">
+        <div class="file-info">
+          <h4>Происхождение</h4>
+          <p>pages/proiskhozhdenie.md</p>
+        </div>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/edit/main/pages/yazyk.md', '_blank')">
+        <div class="file-info">
+          <h4>Язык</h4>
+          <p>pages/yazyk.md</p>
+        </div>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/edit/main/pages/fotoarhiv.md', '_blank')">
+        <div class="file-info">
+          <h4>Фотоархив</h4>
+          <p>pages/fotoarhiv.md</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="file-list" style="margin-top: 2rem;">
+      <div class="file-list-header">
+        <h3>English pages</h3>
+        <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/en/pages" target="_blank" class="btn btn-secondary">Open on GitHub</a>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/en/pages', '_blank')">
+        <div class="file-info">
+          <h4>All English pages</h4>
+          <p>en/pages/</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="file-list" style="margin-top: 2rem;">
+      <div class="file-list-header">
+        <h3>Кыргызча барактар</h3>
+        <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/ky/pages" target="_blank" class="btn btn-secondary">GitHub'та ачуу</a>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/ky/pages', '_blank')">
+        <div class="file-info">
+          <h4>Бардык кыргызча барактар</h4>
+          <p>ky/pages/</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Posts Tab -->
+  <div class="admin-content" id="tab-posts">
+    <div class="notice">
+      <div class="notice-title">📝 Записи блога</div>
+      <p>Записи блога хранятся в папке _posts. Имя файла должно быть в формате: YYYY-MM-DD-название.md</p>
+    </div>
+    
+    <div class="file-list">
+      <div class="file-list-header">
+        <h3>Записи блога</h3>
+        <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/tree/main/_posts" target="_blank" class="btn btn-secondary">Открыть на GitHub</a>
+      </div>
+      <div class="file-item" onclick="window.open('https://github.com/KaraKalmyk/karakalmyk.github.io/new/main/_posts', '_blank')">
+        <div class="file-info">
+          <h4>+ Создать новую запись</h4>
+          <p>Откроется редактор GitHub</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="info-box" style="margin-top: 2rem;">
+      <h2>Шаблон записи блога</h2>
+      <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 4px; overflow-x: auto; font-family: monospace; font-size: 0.85rem;">---
+layout: moma
+title: "Заголовок статьи"
+date: 2024-01-15
+lang: ru
+image: /photos/uploads/image.jpg
+excerpt: "Краткое описание статьи"
+tags:
+  - история
+  - культура
+---
+
+Содержание статьи в формате Markdown...</pre>
+    </div>
+  </div>
+  
+  <!-- Decap CMS Tab -->
+  <div class="admin-content" id="tab-cms">
+    <div class="info-box">
+      <h2>Decap CMS</h2>
+      <p>Decap CMS — полноценная система управления контентом с визуальным редактором. Для её работы требуется настройка аутентификации через Netlify или OAuth.</p>
+      <p><a href="https://decapcms.org/docs/" target="_blank">Документация Decap CMS →</a></p>
+    </div>
+    
+    <div class="notice">
+      <div class="notice-title">⚠️ Требуется настройка</div>
+      <p>Перед использованием Decap CMS необходимо настроить Netlify Identity или альтернативный OAuth-провайдер. Инструкции доступны в файле <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/blob/main/admin/README.md" target="_blank">admin/README.md</a>.</p>
+    </div>
+    
+    <div style="text-align: center; padding: 2rem;">
+      <a href="#" class="btn" id="launch-cms" onclick="launchCMS(); return false;">Запустить Decap CMS</a>
+    </div>
+    
+    <div id="cms-container" style="display: none;">
+      <!-- Decap CMS will be loaded here -->
+    </div>
+  </div>
+  
+  <!-- Decap CMS Script -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // Tab switching
+    document.querySelectorAll('.admin-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+    
+    // Simple Markdown to HTML converter
+    function parseMarkdown(md) {
+      if (!md) return '';
+      
+      let html = md
+        // Escape HTML
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        // Code blocks (must be before other processing)
+        .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+        // Inline code
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        // Headers
+        .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+        // Bold and italic
+        .replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        // Images
+        .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        // Blockquotes
+        .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
+        // Unordered lists
+        .replace(/^- (.*$)/gm, '<li>$1</li>')
+        .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+        // Ordered lists
+        .replace(/^\d+\. (.*$)/gm, '<li>$1</li>')
+        // Paragraphs
+        .replace(/\n\n/g, '</p><p>')
+        // Line breaks
+        .replace(/\n/g, '<br>');
+      
+      // Wrap in paragraph if not starting with block element
+      if (!html.startsWith('<h') && !html.startsWith('<ul') && !html.startsWith('<ol') && !html.startsWith('<pre') && !html.startsWith('<blockquote')) {
+        html = '<p>' + html + '</p>';
+      }
+      
+      return html;
+    }
+    
+    // Update preview
+    function updatePreview() {
+      const markdown = document.getElementById('markdown-editor').value;
+      const title = document.getElementById('page-title').value;
+      const preview = document.getElementById('preview');
+      
+      let html = '';
+      if (title) {
+        html += '<h1>' + title + '</h1>';
+      }
+      html += parseMarkdown(markdown);
+      
+      preview.innerHTML = html;
+    }
+    
+    // Insert markdown syntax
+    function insertMarkdown(before, after) {
+      const textarea = document.getElementById('markdown-editor');
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const text = textarea.value;
+      const selected = text.substring(start, end);
+      
+      textarea.value = text.substring(0, start) + before + selected + after + text.substring(end);
+      textarea.focus();
+      textarea.setSelectionRange(start + before.length, start + before.length + selected.length);
+      updatePreview();
+    }
+    
+    // Copy with front matter
+    function copyFrontmatter() {
+      const title = document.getElementById('page-title').value || 'Untitled';
+      const lang = document.getElementById('page-lang').value;
+      const permalink = document.getElementById('page-permalink').value || '/pages/new-page.html';
+      const content = document.getElementById('markdown-editor').value;
+      
+      const frontmatter = `---
+layout: moma
+title: "${title}"
+lang: ${lang}
+permalink: ${permalink}
+---
+
+${content}`;
+      
+      navigator.clipboard.writeText(frontmatter).then(() => {
+        alert('Скопировано в буфер обмена!');
+      }).catch(err => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = frontmatter;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Скопировано в буфер обмена!');
+      });
+    }
+    
+    // Download as file
+    function downloadFile() {
+      const title = document.getElementById('page-title').value || 'untitled';
+      const lang = document.getElementById('page-lang').value;
+      const permalink = document.getElementById('page-permalink').value || '/pages/new-page.html';
+      const content = document.getElementById('markdown-editor').value;
+      
+      const frontmatter = `---
+layout: moma
+title: "${title}"
+lang: ${lang}
+permalink: ${permalink}
+---
+
+${content}`;
+      
+      const filename = title.toLowerCase()
+        .replace(/[^a-zа-яё0-9]+/gi, '-')
+        .replace(/^-|-$/g, '') + '.md';
+      
+      const blob = new Blob([frontmatter], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    // Clear editor
+    function clearEditor() {
+      if (confirm('Очистить редактор?')) {
+        document.getElementById('page-title').value = '';
+        document.getElementById('page-permalink').value = '';
+        document.getElementById('markdown-editor').value = '';
+        updatePreview();
+      }
+    }
+    
+    // Launch Decap CMS
+    function launchCMS() {
+      document.getElementById('launch-cms').style.display = 'none';
+      document.getElementById('cms-container').style.display = 'block';
+      
+      // Note: Decap CMS is already loaded and will initialize automatically
+      // if configured correctly in config.yml
+      window.location.reload();
+    }
+    
+    // Initialize preview on load
+    updatePreview();
+  </script>
 </body>
 </html>
 

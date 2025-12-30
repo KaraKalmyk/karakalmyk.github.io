@@ -33,9 +33,21 @@
             <span class="lang-link active">{{ site.language_names[language] }}</span>
           {% else %}
             {% if language == 'ru' %}
-              <a href="{{ page.url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% comment %} For Russian, strip any language prefix and go to root {% endcomment %}
+              {% assign ru_url = page.url | remove: '/en' | remove: '/ky' %}
+              {% if ru_url == '/' or ru_url == '/index.html' %}
+                <a href="{{ '/' | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% else %}
+                <a href="{{ ru_url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% endif %}
             {% else %}
-              <a href="{{ '/' | append: language | append: page.url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% comment %} For other languages, add language prefix {% endcomment %}
+              {% assign base_url = page.url | remove: '/en' | remove: '/ky' %}
+              {% if base_url == '/' or base_url == '/index.html' %}
+                <a href="{{ '/' | append: language | append: '/' | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% else %}
+                <a href="{{ '/' | append: language | append: base_url | relative_url }}" class="lang-link">{{ site.language_names[language] }}</a>
+              {% endif %}
             {% endif %}
           {% endif %}
         {% endfor %}
@@ -84,9 +96,19 @@
           <span class="lang-link active">{{ language | upcase }}</span>
         {% else %}
           {% if language == 'ru' %}
-            <a href="{{ page.url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% assign ru_url = page.url | remove: '/en' | remove: '/ky' %}
+            {% if ru_url == '/' or ru_url == '/index.html' %}
+              <a href="{{ '/' | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% else %}
+              <a href="{{ ru_url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% endif %}
           {% else %}
-            <a href="{{ '/' | append: language | append: page.url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% assign base_url = page.url | remove: '/en' | remove: '/ky' %}
+            {% if base_url == '/' or base_url == '/index.html' %}
+              <a href="{{ '/' | append: language | append: '/' | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% else %}
+              <a href="{{ '/' | append: language | append: base_url | relative_url }}" class="lang-link">{{ language | upcase }}</a>
+            {% endif %}
           {% endif %}
         {% endif %}
       {% endfor %}

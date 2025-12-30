@@ -930,7 +930,10 @@ html[data-theme="dark"] .icon-moon { display: inline; }
   position: relative;
   width: 100%;
   min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Extend past sidebar on desktop */
@@ -942,16 +945,19 @@ html[data-theme="dark"] .icon-moon { display: inline; }
 }
 
 .hero-banner-bg {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .hero-banner-bg img {
   width: 100%;
-  height: auto;
-  min-height: 100vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: top center;
   background-color: var(--bg-primary);
 }
@@ -963,7 +969,7 @@ html[data-theme="dark"] .icon-moon { display: inline; }
   left: 0;
   right: 0;
   z-index: 2;
-  padding: var(--space-10) var(--space-8);
+  padding: var(--space-8) var(--space-8) var(--space-6);
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.85) 0%,
@@ -976,6 +982,7 @@ html[data-theme="dark"] .icon-moon { display: inline; }
 @media (min-width: 1024px) {
   .hero-banner-content {
     padding-left: calc(var(--sidebar-width) + var(--space-10));
+    padding-bottom: var(--space-8);
   }
 }
 
