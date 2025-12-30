@@ -1,18 +1,51 @@
 ---
 layout: moma
-title: "karty"
+title: "Maps"
 lang: en
 permalink: /en/pages/karty.html
 ---
+
 {% assign lang = page.lang | default: "en" %}
 {% assign t = site.data.translations[lang] %}
+
 <article class="page-content">
   <header class="page-header">
-    <h1 class="page-title">{{ t.nav.karty | default: "karty" }}</h1>
-    <p class="page-meta">This page is being translated. Please check the Russian version for complete content.</p>
+    <span class="text-uppercase" style="color: var(--text-muted); margin-bottom: var(--space-3); display: block;">Geography</span>
+    <h1 class="page-title">Maps</h1>
+    <p class="page-meta">Static and interactive maps of the region</p>
   </header>
+
   <div class="prose">
-    <p>Content coming soon. This page is currently being translated from Russian.</p>
-    <p><a href="/pages/karty.html">View Russian version →</a></p>
+
+## Ideas
+
+- Historical camps and winter settlements
+- Movements (seasonal routes)
+- Clan territories / cemeteries (with caution and respect)
+- Toponymy (original names and modern ones)
+
+## Technologies (later)
+
+- Simple static images in `assets/images/maps/`
+- GeoJSON files in `assets/data/geo/`
+- Embedding Leaflet.js for interactive maps
+
+## Example GeoJSON Structure
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "...", "type": "winter camp", "years": "ca. 1920"},
+      "geometry": {"type": "Point", "coordinates": [78.39, 42.49]}
+    }
+  ]
+}
+```
+
+> Important: Do not publish sensitive coordinates (e.g., burial sites) without community permission.
+
   </div>
 </article>
