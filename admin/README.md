@@ -2,6 +2,18 @@
 
 This site includes an admin panel powered by [Decap CMS](https://decapcms.org/) (formerly Netlify CMS).
 
+## ⚠️ Important: Use Netlify URL
+
+**The admin panel only works when accessed via the Netlify URL**, not the GitHub Pages URL.
+
+If you see the error:
+> "Нет доступа к настройкам. Если используете git-gateway, убедитесь, что включили Identity service и Git Gateway."
+
+This means you're accessing the site via GitHub Pages. **Solution:** Open the admin panel at your Netlify URL:
+```
+https://YOUR-SITE.netlify.app/admin/
+```
+
 ## Security
 
 **Important:** The admin panel requires authentication to function. Without proper OAuth setup:
@@ -16,11 +28,12 @@ To restrict who can access the admin panel:
 
 ## Access
 
-Admin panel URL: `https://karakalmyk.github.io/admin/`
+- **Netlify URL (CMS works here):** `https://YOUR-SITE.netlify.app/admin/`
+- **GitHub Pages URL (CMS doesn't work here):** `https://karakalmyk.github.io/admin/`
 
 ## Setup Instructions
 
-Since GitHub Pages is a static host, you need to set up OAuth authentication. There are several options:
+Since GitHub Pages is a static host, you need Netlify for the CMS to work.
 
 ### Option 1: Use Netlify (Recommended - Free)
 
@@ -37,7 +50,8 @@ Since GitHub Pages is a static host, you need to set up OAuth authentication. Th
      branch: main
    ```
 7. Invite yourself: **Identity** → **Invite users** → Enter your email
-8. Only invited users will be able to log in and edit content
+8. Access the admin at: **https://YOUR-SITE.netlify.app/admin/**
+9. Only invited users will be able to log in and edit content
 
 ### Option 2: Use External OAuth Provider
 
