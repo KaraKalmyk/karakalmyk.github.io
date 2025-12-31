@@ -137,6 +137,26 @@ ru:
     greeting: "Приветствие"
     intro_text: "Данный словарь содержит лексику сарт-калмыцкого языка с переводами на киргизский, русский и английский языки. Используйте поиск для нахождения нужного слова."
 
+  maps:
+    title: "Карты"
+    subtitle: "Интерактивная карта сарт-калмыцких сёл близ Каракола"
+    villages_title: "Сёла сарт-калмыков"
+    villages_description: "Сёла Челпек, Борубаш, Ташкия и Бурма-суу расположены вблизи города Каракол в Иссык-Кульской области Кыргызстана."
+    select_provider: "Выбрать карту"
+    legend: "Легенда"
+    provider_osm: "OpenStreetMap"
+    provider_google_streets: "Google Карты"
+    provider_google_satellite: "Google Спутник"
+    provider_google_hybrid: "Google Гибрид"
+    provider_yandex: "Яндекс"
+    provider_yandex_satellite: "Яндекс Спутник"
+    provider_bing: "Bing"
+    provider_2gis: "2ГИС"
+    chelpek: "Челпек"
+    borubash: "Борубаш"
+    tashkiya: "Ташкия"
+    burmasuu: "Бурма-суу"
+
 en:
   site:
     title: "Sart-Kalmyks of Issyk-Kul"
@@ -270,6 +290,26 @@ en:
     greeting: "Greeting"
     intro_text: "This dictionary contains the vocabulary of the Sart-Kalmyk language with translations into Kyrgyz, Russian, and English. Use the search to find the word you need."
 
+  maps:
+    title: "Maps"
+    subtitle: "Interactive map of Sart-Kalmyk villages near Karakol"
+    villages_title: "Sart-Kalmyk Villages"
+    villages_description: "The villages of Chelpek, Borubash, Tashkiya, and Burma-suu are located near the city of Karakol in the Issyk-Kul region of Kyrgyzstan."
+    select_provider: "Select Map"
+    legend: "Legend"
+    provider_osm: "OpenStreetMap"
+    provider_google_streets: "Google Maps"
+    provider_google_satellite: "Google Satellite"
+    provider_google_hybrid: "Google Hybrid"
+    provider_yandex: "Yandex"
+    provider_yandex_satellite: "Yandex Satellite"
+    provider_bing: "Bing"
+    provider_2gis: "2GIS"
+    chelpek: "Chelpek"
+    borubash: "Borubash"
+    tashkiya: "Tashkiya"
+    burmasuu: "Burma-suu"
+
 ky:
   site:
     title: "Ысык-Көлдүн сарт-калмактары"
@@ -402,4 +442,24 @@ ky:
     numeral: "Сан атооч"
     greeting: "Саламдашуу"
     intro_text: "Бул сөздүк сарт-калмак тилинин лексикасын кыргыз, орус жана англис тилдерине котормолору менен камтыйт. Керектүү сөздү табуу үчүн издөөнү колдонуңуз."
+
+  maps:
+    title: "Карталар"
+    subtitle: "Караколдун жанындагы сарт-калмак айылдарынын интерактивдүү картасы"
+    villages_title: "Сарт-калмак айылдары"
+    villages_description: "Челпек, Борубаш, Ташкия жана Бурма-суу айылдары Кыргызстандын Ысык-Көл облусунда Каракол шаарынын жанында жайгашкан."
+    select_provider: "Картаны тандоо"
+    legend: "Шартбелги"
+    provider_osm: "OpenStreetMap"
+    provider_google_streets: "Google Карталар"
+    provider_google_satellite: "Google Спутник"
+    provider_google_hybrid: "Google Гибрид"
+    provider_yandex: "Яндекс"
+    provider_yandex_satellite: "Яндекс Спутник"
+    provider_bing: "Bing"
+    provider_2gis: "2GIS"
+    chelpek: "Челпек"
+    borubash: "Борубаш"
+    tashkiya: "Ташкия"
+    burmasuu: "Бурма-суу"
 

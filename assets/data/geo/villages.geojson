@@ -1,0 +1,117 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chelpek",
+        "name_ru": "Челпек",
+        "name_ky": "Челпек",
+        "type": "village",
+        "description_en": "Sart-Kalmyk village near Karakol",
+        "description_ru": "Сарт-калмыцкое село недалеко от Каракола",
+        "description_ky": "Сарт-калмак айылы Караколдун жанында"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [78.3850, 42.5150],
+          [78.3950, 42.5150],
+          [78.3980, 42.5200],
+          [78.3950, 42.5250],
+          [78.3850, 42.5250],
+          [78.3820, 42.5200],
+          [78.3850, 42.5150]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Borubash",
+        "name_ru": "Борубаш",
+        "name_ky": "Борубаш",
+        "type": "village",
+        "description_en": "Sart-Kalmyk village near Karakol",
+        "description_ru": "Сарт-калмыцкое село недалеко от Каракола",
+        "description_ky": "Сарт-калмак айылы Караколдун жанында"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [78.3550, 42.4950],
+          [78.3650, 42.4950],
+          [78.3680, 42.5000],
+          [78.3650, 42.5050],
+          [78.3550, 42.5050],
+          [78.3520, 42.5000],
+          [78.3550, 42.4950]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tashkiya",
+        "name_ru": "Ташкия",
+        "name_ky": "Ташкия",
+        "type": "village",
+        "description_en": "Sart-Kalmyk village near Karakol",
+        "description_ru": "Сарт-калмыцкое село недалеко от Каракола",
+        "description_ky": "Сарт-калмак айылы Караколдун жанында"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [78.4150, 42.5050],
+          [78.4250, 42.5050],
+          [78.4280, 42.5100],
+          [78.4250, 42.5150],
+          [78.4150, 42.5150],
+          [78.4120, 42.5100],
+          [78.4150, 42.5050]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Burma-suu",
+        "name_ru": "Бурма-суу",
+        "name_ky": "Бурма-суу",
+        "type": "village",
+        "description_en": "Sart-Kalmyk village near Karakol",
+        "description_ru": "Сарт-калмыцкое село недалеко от Каракола",
+        "description_ky": "Сарт-калмак айылы Караколдун жанында"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [78.3750, 42.4800],
+          [78.3850, 42.4800],
+          [78.3880, 42.4850],
+          [78.3850, 42.4900],
+          [78.3750, 42.4900],
+          [78.3720, 42.4850],
+          [78.3750, 42.4800]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Karakol",
+        "name_ru": "Каракол",
+        "name_ky": "Каракол",
+        "type": "city",
+        "description_en": "Main city in the region",
+        "description_ru": "Главный город региона",
+        "description_ky": "Аймактын башкы шаары"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [78.3945, 42.4907]
+      }
+    }
+  ]
+}
