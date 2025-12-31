@@ -62,7 +62,8 @@
       netlifyIdentity.on('init', function(user) {
         if (!user) {
           netlifyIdentity.on('login', function() {
-            document.location.href = '/admin/cms.html';
+            // Reload the page to reinitialize Decap CMS with authenticated user
+            document.location.reload();
           });
         }
       });
