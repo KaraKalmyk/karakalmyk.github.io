@@ -264,8 +264,8 @@
     legendContainer.innerHTML = legendHTML;
   }
 
-  // Initialize on DOM ready
-  document.addEventListener('DOMContentLoaded', function() {
+  // Initialize map
+  function initialize() {
     // Check if we're on the maps page
     if (document.getElementById('villages-map')) {
       // Wait for Leaflet to load
@@ -276,6 +276,14 @@
         console.error('Leaflet library not loaded');
       }
     }
-  });
+  }
+
+  // Initialize on DOM ready, or immediately if DOM is already loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    // DOM is already ready, initialize immediately
+    initialize();
+  }
 
 })();
