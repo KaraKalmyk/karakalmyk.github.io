@@ -4,7 +4,7 @@ title: "Фотоархив"
 permalink: /pages/fotoarhiv.html
 ---
 
-<article class="page-content">
+<article class="page-content page-content-gallery">
   <header class="page-header">
     <span class="text-uppercase" style="color: var(--text-muted); margin-bottom: var(--space-3); display: block;">Архив</span>
     <h1 class="page-title">Фотоархив</h1>
