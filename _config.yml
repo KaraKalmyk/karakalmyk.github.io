@@ -34,6 +34,8 @@ nav:
     url: "/pages/hozyaystvo.html"
   - title: "Язык"
     url: "/pages/yazyk.html"
+  - title: "Словарь"
+    url: "/pages/slovar.html"
   - title: "Религия"
     url: "/pages/religiya.html"
   - title: "Фотоархив"

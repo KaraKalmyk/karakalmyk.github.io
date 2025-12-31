@@ -1,0 +1,370 @@
+---
+layout: moma
+title: "Dictionary"
+lang: en
+permalink: /en/pages/slovar.html
+---
+
+{% assign lang = page.lang | default: "en" %}
+{% assign t = site.data.translations[lang] %}
+
+<article class="page-content dictionary-page">
+  <header class="page-header">
+    <span class="text-uppercase" style="color: var(--text-muted); margin-bottom: var(--space-3); display: block;">{{ t.nav.language }}</span>
+    <h1 class="page-title">{{ t.dictionary.title }}</h1>
+    <p class="page-meta">{{ t.dictionary.subtitle }}</p>
+  </header>
+
+  <div class="dictionary-intro">
+    <p>{{ t.dictionary.intro_text }}</p>
+    <p class="dictionary-stats"><strong>{{ site.data.dictionary | size }}</strong> {{ t.dictionary.total_entries }}</p>
+  </div>
+
+  <!-- Search and Filter Section -->
+  <div class="dictionary-controls">
+    <div class="dictionary-search">
+      <input type="text" id="dictionarySearch" placeholder="{{ t.dictionary.search_placeholder }}" class="dictionary-search-input" autocomplete="off">
+      <span class="search-icon">🔍</span>
+    </div>
+    <div class="dictionary-filter">
+      <select id="posFilter" class="dictionary-filter-select">
+        <option value="all">{{ t.dictionary.all_parts }}</option>
+        <option value="noun">{{ t.dictionary.noun }}</option>
+        <option value="verb">{{ t.dictionary.verb }}</option>
+        <option value="adjective">{{ t.dictionary.adjective }}</option>
+        <option value="numeral">{{ t.dictionary.numeral }}</option>
+        <option value="greeting">{{ t.dictionary.greeting }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Dictionary Table -->
+  <div class="dictionary-container">
+    <table class="dictionary-table" id="dictionaryTable">
+      <thead>
+        <tr>
+          <th data-sort="sart_kalmyk">{{ t.dictionary.sart_kalmyk }}</th>
+          <th data-sort="kyrgyz">{{ t.dictionary.kyrgyz }}</th>
+          <th data-sort="russian">{{ t.dictionary.russian }}</th>
+          <th data-sort="english">{{ t.dictionary.english }}</th>
+          <th data-sort="pos" class="pos-column">{{ t.dictionary.pos }}</th>
+        </tr>
+      </thead>
+      <tbody id="dictionaryBody">
+        {% for entry in site.data.dictionary %}
+        <tr data-pos="{{ entry.pos }}">
+          <td class="sart-kalmyk-cell">{{ entry.sart_kalmyk }}</td>
+          <td>{{ entry.kyrgyz }}</td>
+          <td>{{ entry.russian }}</td>
+          <td>{{ entry.english }}</td>
+          <td class="pos-cell">
+            {% case entry.pos %}
+              {% when 'noun' %}{{ t.dictionary.noun }}
+              {% when 'verb' %}{{ t.dictionary.verb }}
+              {% when 'adjective' %}{{ t.dictionary.adjective }}
+              {% when 'numeral' %}{{ t.dictionary.numeral }}
+              {% when 'greeting' %}{{ t.dictionary.greeting }}
+              {% else %}{{ entry.pos }}
+            {% endcase %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div id="noResults" class="no-results" style="display: none;">
+      {{ t.dictionary.no_results }}
+    </div>
+  </div>
+</article>
+
+<style>
+/* Dictionary Page Styles */
+.dictionary-page {
+  max-width: 1200px;
+}
+
+.dictionary-intro {
+  margin-bottom: var(--space-6);
+}
+
+.dictionary-intro p {
+  margin-bottom: var(--space-3);
+}
+
+.dictionary-stats {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.dictionary-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.dictionary-search {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.dictionary-search-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  padding-left: var(--space-10);
+  font-size: var(--text-base);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.dictionary-search-input:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+.dictionary-filter {
+  min-width: 180px;
+}
+
+.dictionary-filter-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.dictionary-filter-select:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
+.dictionary-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dictionary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.dictionary-table th,
+.dictionary-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dictionary-table th {
+  background: var(--bg-secondary);
+  font-weight: var(--font-weight-semibold);
+  position: sticky;
+  top: 0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dictionary-table th:hover {
+  background: var(--bg-tertiary);
+}
+
+.dictionary-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.sart-kalmyk-cell {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.pos-cell {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pos-column {
+  width: 120px;
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--space-10);
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+}
+
+/* Highlight matching text */
+.highlight {
+  background: rgba(255, 213, 0, 0.4);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+html[data-theme="dark"] .highlight {
+  background: rgba(255, 213, 0, 0.3);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .dictionary-controls {
+    flex-direction: column;
+    padding: var(--space-3);
+  }
+
+  .dictionary-search,
+  .dictionary-filter {
+    min-width: 100%;
+  }
+
+  .dictionary-table {
+    font-size: var(--text-xs);
+  }
+
+  .dictionary-table th,
+  .dictionary-table td {
+    padding: var(--space-2) var(--space-2);
+  }
+
+  .pos-column {
+    display: none;
+  }
+
+  .pos-cell {
+    display: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('dictionarySearch');
+  const posFilter = document.getElementById('posFilter');
+  const tableBody = document.getElementById('dictionaryBody');
+  const noResults = document.getElementById('noResults');
+  const rows = tableBody.querySelectorAll('tr');
+
+  function filterTable() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const selectedPos = posFilter.value;
+    let visibleCount = 0;
+
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      const pos = row.dataset.pos;
+      
+      // Check POS filter
+      const posMatch = selectedPos === 'all' || pos === selectedPos;
+      
+      // Check search term
+      let searchMatch = false;
+      if (searchTerm === '') {
+        searchMatch = true;
+      } else {
+        cells.forEach(cell => {
+          if (cell.textContent.toLowerCase().includes(searchTerm)) {
+            searchMatch = true;
+          }
+        });
+      }
+
+      // Show/hide row
+      if (posMatch && searchMatch) {
+        row.style.display = '';
+        visibleCount++;
+        
+        // Highlight matching text
+        cells.forEach(cell => {
+          const originalText = cell.dataset.original || cell.textContent;
+          cell.dataset.original = originalText;
+          
+          if (searchTerm && cell.textContent.toLowerCase().includes(searchTerm)) {
+            const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+            cell.innerHTML = originalText.replace(regex, '<span class="highlight">$1</span>');
+          } else {
+            cell.textContent = originalText;
+          }
+        });
+      } else {
+        row.style.display = 'none';
+        // Remove highlights from hidden rows
+        cells.forEach(cell => {
+          if (cell.dataset.original) {
+            cell.textContent = cell.dataset.original;
+          }
+        });
+      }
+    });
+
+    // Show/hide no results message
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Event listeners
+  searchInput.addEventListener('input', filterTable);
+  posFilter.addEventListener('change', filterTable);
+
+  // Table sorting
+  const headers = document.querySelectorAll('.dictionary-table th[data-sort]');
+  let currentSort = { column: null, ascending: true };
+
+  headers.forEach(header => {
+    header.addEventListener('click', function() {
+      const column = this.dataset.sort;
+      const columnIndex = Array.from(this.parentNode.children).indexOf(this);
+      
+      // Toggle sort direction
+      if (currentSort.column === column) {
+        currentSort.ascending = !currentSort.ascending;
+      } else {
+        currentSort.column = column;
+        currentSort.ascending = true;
+      }
+
+      // Sort rows
+      const sortedRows = Array.from(rows).sort((a, b) => {
+        const aText = a.children[columnIndex].textContent.toLowerCase();
+        const bText = b.children[columnIndex].textContent.toLowerCase();
+        
+        if (aText < bText) return currentSort.ascending ? -1 : 1;
+        if (aText > bText) return currentSort.ascending ? 1 : -1;
+        return 0;
+      });
+
+      // Re-append rows in sorted order
+      sortedRows.forEach(row => tableBody.appendChild(row));
+
+      // Update header indicators
+      headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+      this.classList.add(currentSort.ascending ? 'sort-asc' : 'sort-desc');
+    });
+  });
+});
+</script>

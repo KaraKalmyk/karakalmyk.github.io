@@ -17,6 +17,7 @@ ru:
     culture: "Быт и культура"
     economy: "Хозяйство"
     language: "Язык"
+    dictionary: "Словарь"
     religion: "Религия"
     photos: "Фотоархив"
     maps: "Карты"
@@ -117,6 +118,25 @@ ru:
     toggle_theme: "Переключить тему"
     open_menu: "Открыть меню"
 
+  dictionary:
+    title: "Словарь"
+    subtitle: "Сарт-калмыцко-киргизско-русско-английский словарь"
+    search_placeholder: "Введите слово для поиска..."
+    sart_kalmyk: "Сарт-калмыцкий"
+    kyrgyz: "Киргизский"
+    russian: "Русский"
+    english: "Английский"
+    pos: "Часть речи"
+    no_results: "Слово не найдено"
+    total_entries: "слов в словаре"
+    all_parts: "Все части речи"
+    noun: "Существительное"
+    verb: "Глагол"
+    adjective: "Прилагательное"
+    numeral: "Числительное"
+    greeting: "Приветствие"
+    intro_text: "Данный словарь содержит лексику сарт-калмыцкого языка с переводами на киргизский, русский и английский языки. Используйте поиск для нахождения нужного слова."
+
 en:
   site:
     title: "Sart-Kalmyks of Issyk-Kul"
@@ -130,6 +150,7 @@ en:
     culture: "Life & Culture"
     economy: "Economy"
     language: "Language"
+    dictionary: "Dictionary"
     religion: "Religion"
     photos: "Photo Archive"
     maps: "Maps"
@@ -230,6 +251,25 @@ en:
     toggle_theme: "Toggle theme"
     open_menu: "Open menu"
 
+  dictionary:
+    title: "Dictionary"
+    subtitle: "Sart-Kalmyk — Kyrgyz — Russian — English Dictionary"
+    search_placeholder: "Enter a word to search..."
+    sart_kalmyk: "Sart-Kalmyk"
+    kyrgyz: "Kyrgyz"
+    russian: "Russian"
+    english: "English"
+    pos: "Part of speech"
+    no_results: "Word not found"
+    total_entries: "words in dictionary"
+    all_parts: "All parts of speech"
+    noun: "Noun"
+    verb: "Verb"
+    adjective: "Adjective"
+    numeral: "Numeral"
+    greeting: "Greeting"
+    intro_text: "This dictionary contains the vocabulary of the Sart-Kalmyk language with translations into Kyrgyz, Russian, and English. Use the search to find the word you need."
+
 ky:
   site:
     title: "Ысык-Көлдүн сарт-калмактары"
@@ -243,6 +283,7 @@ ky:
     culture: "Турмуш жана маданият"
     economy: "Чарба"
     language: "Тил"
+    dictionary: "Сөздүк"
     religion: "Дин"
     photos: "Сүрөт архиви"
     maps: "Карталар"
@@ -342,4 +383,23 @@ ky:
   ui:
     toggle_theme: "Теманы которуу"
     open_menu: "Менюну ачуу"
+
+  dictionary:
+    title: "Сөздүк"
+    subtitle: "Сарт-калмакча — Кыргызча — Орусча — Англисче сөздүк"
+    search_placeholder: "Издөө үчүн сөз жазыңыз..."
+    sart_kalmyk: "Сарт-калмакча"
+    kyrgyz: "Кыргызча"
+    russian: "Орусча"
+    english: "Англисче"
+    pos: "Сөз түрү"
+    no_results: "Сөз табылган жок"
+    total_entries: "сөздүктөгү сөздөр"
+    all_parts: "Бардык сөз түрлөрү"
+    noun: "Зат атооч"
+    verb: "Этиш"
+    adjective: "Сын атооч"
+    numeral: "Сан атооч"
+    greeting: "Саламдашуу"
+    intro_text: "Бул сөздүк сарт-калмак тилинин лексикасын кыргыз, орус жана англис тилдерине котормолору менен камтыйт. Керектүү сөздү табуу үчүн издөөнү колдонуңуз."
 
