@@ -190,6 +190,17 @@ permalink: /ky/pages/slovar.html
   background: var(--bg-tertiary);
 }
 
+/* Sort indicator styles */
+.dictionary-table th.sort-asc::after {
+  content: ' ↑';
+  font-size: 0.8em;
+}
+
+.dictionary-table th.sort-desc::after {
+  content: ' ↓';
+  font-size: 0.8em;
+}
+
 .dictionary-table tbody tr:hover {
   background: var(--bg-secondary);
 }
