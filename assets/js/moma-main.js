@@ -131,10 +131,87 @@
     images.forEach(img => imageObserver.observe(img));
   }
 
+  // === Photo Lightbox ===
+  function initPhotoLightbox() {
+    // Create lightbox element if it doesn't exist
+    let lightbox = document.getElementById('photoLightbox');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.id = 'photoLightbox';
+      lightbox.className = 'photo-lightbox';
+      lightbox.innerHTML = `
+        <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+        <div class="photo-lightbox-content">
+          <img src="" alt="" />
+          <div class="photo-lightbox-caption">
+            <div class="photo-lightbox-caption-title"></div>
+            <div class="photo-lightbox-caption-meta"></div>
+          </div>
+        </div>
+        <span class="photo-lightbox-hint">Click anywhere to close</span>
+      `;
+      document.body.appendChild(lightbox);
+    }
+
+    const lightboxImg = lightbox.querySelector('.photo-lightbox-content img');
+    const lightboxTitle = lightbox.querySelector('.photo-lightbox-caption-title');
+    const lightboxMeta = lightbox.querySelector('.photo-lightbox-caption-meta');
+    const closeBtn = lightbox.querySelector('.photo-lightbox-close');
+
+    // Open lightbox function
+    function openLightbox(imgSrc, title, meta) {
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = title || '';
+      lightboxTitle.textContent = title || '';
+      lightboxMeta.textContent = meta || '';
+      lightbox.classList.add('active');
+      document.body.classList.add('lightbox-open');
+    }
+
+    // Close lightbox function
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.classList.remove('lightbox-open');
+    }
+
+    // Add click listeners to gallery items
+    const galleryItems = document.querySelectorAll('.gallery-moma .gallery-item');
+    galleryItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption');
+        const titleEl = caption ? caption.querySelector('.gallery-caption-title') : null;
+        const metaEl = caption ? caption.querySelector('.gallery-caption-meta') : null;
+        const title = titleEl ? titleEl.textContent : '';
+        const meta = metaEl ? metaEl.textContent : '';
+        
+        if (img) {
+          openLightbox(img.src, title, meta);
+        }
+      });
+    });
+
+    // Close on clicking the lightbox background or close button
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.closest('.photo-lightbox-close')) {
+        closeLightbox();
+      }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
+
   // === Initialize ===
   document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
     lazyLoadImages();
+    initPhotoLightbox();
   });
 
 })();
