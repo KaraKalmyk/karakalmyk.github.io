@@ -3,35 +3,35 @@ backend:
   branch: main
   #
   # ═══════════════════════════════════════════════════════════════════
-  # SECURITY NOTE: Authentication Required
+  # ВАЖНО: ИСПОЛЬЗУЙТЕ URL NETLIFY, А НЕ GITHUB PAGES
+  # IMPORTANT: USE NETLIFY URL, NOT GITHUB PAGES
   # ═══════════════════════════════════════════════════════════════════
   #
-  # By default, users can visit /admin/ but CANNOT make changes without
-  # proper authentication. The admin panel requires OAuth setup to work.
+  # Если вы видите ошибку:
+  # "Нет доступа к настройкам. Если используете git-gateway..."
   #
-  # Without Netlify Identity or OAuth configured:
-  # - Visitors can see the admin interface
-  # - NO ONE can log in or make changes to the site
-  # - The CMS will show "Error loading the CMS configuration"
+  # Это означает, что вы открыли страницу по URL GitHub Pages.
+  # Git Gateway работает ТОЛЬКО через Netlify.
+  #
+  # Решение: откройте админ-панель по URL Netlify:
+  # https://YOUR-SITE.netlify.app/admin/
   #
   # ═══════════════════════════════════════════════════════════════════
-  # SETUP REQUIRED: Netlify Identity + Git Gateway
+  # НАСТРОЙКА: Netlify Identity + Git Gateway
   # ═══════════════════════════════════════════════════════════════════
   #
-  # To enable admin access for authorized users only:
+  # 1. Войдите на https://app.netlify.com с аккаунтом GitHub
+  # 2. "Add new site" → "Import an existing project" → Выберите репозиторий
+  # 3. Настройки сборки: command = "jekyll build", directory = "_site"
+  # 4. После деплоя: Site configuration → Identity → Enable Identity
+  # 5. ВАЖНО: Identity → Settings → Registration → "Invite only"
+  #    (чтобы запретить регистрацию посторонних)
+  # 6. Identity → Services → Enable Git Gateway
+  # 7. Identity → Invite users → введите свой email
+  # 8. Откройте админ-панель: https://YOUR-SITE.netlify.app/admin/
   #
-  # 1. Go to https://app.netlify.com and sign up/login with GitHub
-  # 2. "Add new site" → "Import an existing project" → Select your repo
-  # 3. Build settings: command = "jekyll build", directory = "_site"
-  # 4. After deploy, go to: Site configuration → Identity → Enable Identity
-  # 5. IMPORTANT: Set registration to "Invite only" to prevent public sign-ups!
-  #    Go to: Identity → Settings → Registration → Invite only
-  # 6. Then go to: Site configuration → Identity → Services → Enable Git Gateway
-  # 7. Invite yourself: Identity → Invite users → Enter your email
-  # 8. Access admin at: https://YOUR-SITE.netlify.app/admin/
+  # ПОМНИТЕ: Админ-панель работает ТОЛЬКО на URL Netlify!
   #
-  # Note: The admin panel will work on your Netlify URL, not GitHub Pages URL
-  # Only users you invite can log in and make changes!
 
 # Media files storage
 media_folder: "photos/uploads"

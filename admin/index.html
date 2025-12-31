@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Админ-панель | Сарт-калмыки</title>
-  <!-- Netlify Identity Widget for authentication -->
+  <!-- Netlify Identity Widget for authentication - MUST be loaded before Decap CMS -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Initialize Netlify Identity immediately
+    if (typeof netlifyIdentity !== 'undefined') {
+      netlifyIdentity.init({
+        // Use the Netlify site URL for authentication
+        // When deployed to Netlify, this will be automatically detected
+        // For GitHub Pages deployment, users must access via Netlify URL
+      });
+    }
+  </script>
   <style>
     :root {
       --bg-primary: #ffffff;
@@ -612,22 +622,35 @@ tags:
       <p><a href="https://decapcms.org/docs/" target="_blank">Документация Decap CMS →</a></p>
     </div>
     
-    <div class="notice">
-      <div class="notice-title">⚠️ Требуется настройка</div>
-      <p>Перед использованием Decap CMS необходимо настроить Netlify Identity или альтернативный OAuth-провайдер. Инструкции доступны в файле <a href="https://github.com/KaraKalmyk/karakalmyk.github.io/blob/main/admin/README.md" target="_blank">admin/README.md</a>.</p>
+    <div class="notice" style="background: #fef3c7; border: 1px solid #f59e0b;">
+      <div class="notice-title">⚠️ Важно: Используйте URL Netlify</div>
+      <p>Decap CMS работает только через Netlify. Если вы видите ошибку "Нет доступа к настройкам" — откройте страницу по адресу Netlify:</p>
+      <p><strong>https://YOUR-SITE.netlify.app/admin/</strong></p>
+      <p style="margin-top: 1rem;">Если Identity и Git Gateway уже включены, но ошибка сохраняется:</p>
+      <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+        <li>Убедитесь, что используете URL Netlify, а не GitHub Pages</li>
+        <li>Очистите кэш браузера и попробуйте снова</li>
+        <li>Проверьте, что ваш email добавлен в Identity → Users</li>
+      </ul>
+    </div>
+    
+    <div class="notice" style="margin-top: 1rem;">
+      <div class="notice-title">📝 Настройка</div>
+      <p>Инструкции по настройке Netlify Identity и Git Gateway:</p>
+      <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+        <li>Войдите на <a href="https://app.netlify.com" target="_blank">app.netlify.com</a></li>
+        <li>Откройте свой сайт → Site configuration → Identity → Enable Identity</li>
+        <li>Identity → Registration → установите "Invite only"</li>
+        <li>Identity → Services → Enable Git Gateway</li>
+        <li>Identity → Invite users → пригласите себя по email</li>
+      </ol>
+      <p style="margin-top: 1rem;"><a href="https://github.com/KaraKalmyk/karakalmyk.github.io/blob/main/admin/README.md" target="_blank">Подробная документация →</a></p>
     </div>
     
     <div style="text-align: center; padding: 2rem;">
-      <a href="#" class="btn" id="launch-cms" onclick="launchCMS(); return false;">Запустить Decap CMS</a>
-    </div>
-    
-    <div id="cms-container" style="display: none;">
-      <!-- Decap CMS will be loaded here -->
+      <a href="/admin/cms.html" class="btn">Открыть Decap CMS</a>
     </div>
   </div>
-  
-  <!-- Decap CMS Script -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
     // Tab switching
@@ -789,19 +812,8 @@ ${content}`;
       }
     }
     
-    // Launch Decap CMS
-    function launchCMS() {
-      document.getElementById('launch-cms').style.display = 'none';
-      document.getElementById('cms-container').style.display = 'block';
-      
-      // Note: Decap CMS is already loaded and will initialize automatically
-      // if configured correctly in config.yml
-      window.location.reload();
-    }
-    
     // Initialize preview on load
     updatePreview();
   </script>
 </body>
 </html>
-

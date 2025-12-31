@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Decap CMS | Сарт-калмыки</title>
+  
+  <!-- 
+    ВАЖНО / IMPORTANT:
+    ══════════════════════════════════════════════════════════════════════
+    Для работы CMS необходимо:
+    1. Развернуть сайт на Netlify (не только на GitHub Pages)
+    2. Включить Netlify Identity (Site settings → Identity → Enable)
+    3. Включить Git Gateway (Identity → Services → Enable Git Gateway)
+    4. Открывать эту страницу по URL Netlify (не GitHub Pages!)
+    
+    Например: https://YOUR-SITE.netlify.app/admin/cms.html
+    
+    Если вы видите ошибку "Нет доступа к настройкам", проверьте:
+    - Вы используете URL Netlify, а не GitHub Pages
+    - Identity service включен
+    - Git Gateway включен
+    ══════════════════════════════════════════════════════════════════════
+  -->
+  
+  <!-- Netlify Identity Widget - MUST be loaded first -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .back-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10000;
+      padding: 8px 16px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .back-link:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <a href="/admin/" class="back-link">← Назад в админ-панель</a>
+  
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // Handle Netlify Identity authentication
+    if (typeof netlifyIdentity !== 'undefined') {
+      netlifyIdentity.on('init', function(user) {
+        if (!user) {
+          netlifyIdentity.on('login', function() {
+            // Reload the page to reinitialize Decap CMS with authenticated user
+            document.location.reload();
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
