@@ -15,7 +15,7 @@ permalink: /en/pages/yazyk.html
     <p class="page-meta">A unique dialect on the verge of extinction</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 The small Sart-Kalmyk community living in Kyrgyzstan has its own native language, which they call "khälmyg kelän" (Kalmyk language). This language is a living fragment of the rich Mongolic language family, but unfortunately, today it is on the verge of complete extinction.
 

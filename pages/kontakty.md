@@ -11,7 +11,7 @@ permalink: /pages/kontakty.html
     <p class="page-meta">Свяжитесь с нами для сотрудничества или вопросов</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 Если вы хотите поделиться материалами, уточнить информацию или предложить сотрудничество — напишите.
 

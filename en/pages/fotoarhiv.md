@@ -15,7 +15,7 @@ permalink: /en/pages/fotoarhiv.html
     <p class="page-meta">Digitized historical photographs, family albums, and expedition shots</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Gallery
 
@@ -43,7 +43,7 @@ permalink: /en/pages/fotoarhiv.html
     {% endfor %}
   </div>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
   <p style="font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-6);">
     Total photos: {{ photos.size }}
   </p>

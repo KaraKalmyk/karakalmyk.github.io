@@ -11,7 +11,7 @@ permalink: /pages/fotoarhiv.html
     <p class="page-meta">Оцифрованные исторические фотографии, семейные альбомы и экспедиционные снимки</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Галерея
 
@@ -39,7 +39,7 @@ permalink: /pages/fotoarhiv.html
     {% endfor %}
   </div>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
   <p style="font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-6);">
     Всего фотографий: {{ photos.size }}
   </p>

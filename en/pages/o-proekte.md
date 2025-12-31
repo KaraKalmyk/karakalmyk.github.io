@@ -15,7 +15,7 @@ permalink: /en/pages/o-proekte.html
     <p class="page-meta">Preserving and presenting the cultural heritage of the Sart-Kalmyks</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 This project was created to preserve and make accessible the cultural heritage of the Sart-Kalmyks (Sart-Oirats) of the Issyk-Kul region.
 

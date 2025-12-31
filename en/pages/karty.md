@@ -15,7 +15,7 @@ permalink: /en/pages/karty.html
     <p class="page-meta">Static and interactive maps of the region</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 ## Ideas
 

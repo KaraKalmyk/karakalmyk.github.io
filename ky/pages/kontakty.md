@@ -15,7 +15,7 @@ permalink: /ky/pages/kontakty.html
     <p class="page-meta">Кызматташуу же суроолор үчүн байланышыңыз</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 Эгер материалдар менен бөлүшкүңүз келсе, маалыматты тактагыңыз келсе же кызматташуу сунуштагыңыз келсе — бизге жазыңыз.
 

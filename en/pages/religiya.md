@@ -15,7 +15,7 @@ permalink: /en/pages/religiya.html
     <p class="page-meta">The path from Buddhism to Islam</p>
   </header>
 
-  <div class="prose">
+  <div class="prose" markdown="1">
 
 The Sart-Kalmyks, a small ethnic group of Oirat (Mongolian) origin living mainly in the Issyk-Kul region of Kyrgyzstan, today practice Sunni Islam. However, their religious journey was not straightforward and is full of interesting historical turns, traces of which are preserved in their language and culture.
 
