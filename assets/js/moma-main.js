@@ -132,7 +132,13 @@
   }
 
   // === Photo Lightbox ===
+  let lightboxInitialized = false;
+  
   function initPhotoLightbox() {
+    // Prevent duplicate initialization
+    if (lightboxInitialized) return;
+    lightboxInitialized = true;
+    
     // Create lightbox element if it doesn't exist
     let lightbox = document.getElementById('photoLightbox');
     if (!lightbox) {
@@ -192,9 +198,12 @@
       });
     });
 
-    // Close on clicking the lightbox background or close button
+    // Close on clicking the close button
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Close on clicking the lightbox background (not the content)
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target.closest('.photo-lightbox-close')) {
+      if (e.target === lightbox) {
         closeLightbox();
       }
     });
