@@ -62,22 +62,6 @@ permalink: /ky/
     </header>
 
     <div class="card-grid stagger-children">
-      <!-- Featured Card: History -->
-      <a href="/{{ lang }}/pages/istoriya.html" class="card-moma card-feature span-12">
-        <div class="card-image">
-          <img src="{{ '/photos/yudakhin/borubash/yurta.jpg' | relative_url }}" 
-               alt="{{ t.cards.history_title }}" />
-        </div>
-        <div class="card-content">
-          <span class="card-tag">{{ t.cards.history_tag }}</span>
-          <h3 class="card-title">{{ t.cards.history_title }}</h3>
-          <p class="card-excerpt">
-            {{ t.cards.history_excerpt }}
-          </p>
-          <span class="card-link">{{ t.cards.history_link }}</span>
-        </div>
-      </a>
-
       <!-- Language -->
       <a href="/{{ lang }}/pages/yazyk.html" class="card-moma span-6">
         <div class="card-content">

@@ -63,7 +63,6 @@
               {{ t.nav.home }}
             </a>
           </li>
-          <li><a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}">{{ t.nav.history }}</a></li>
           <li><a href="{% if lang == 'ru' %}/pages/proiskhozhdenie.html{% else %}/{{ lang }}/pages/proiskhozhdenie.html{% endif %}">{{ t.nav.origin }}</a></li>
           <li><a href="{% if lang == 'ru' %}/pages/byt-i-kultura.html{% else %}/{{ lang }}/pages/byt-i-kultura.html{% endif %}">{{ t.nav.culture }}</a></li>
           <li><a href="{% if lang == 'ru' %}/pages/hozyaystvo.html{% else %}/{{ lang }}/pages/hozyaystvo.html{% endif %}">{{ t.nav.economy }}</a></li>
@@ -128,7 +127,6 @@
     <nav class="mobile-nav">
       <ul>
         <li><a href="{% if lang == 'ru' %}{{ '/' | relative_url }}{% else %}{{ '/' | append: lang | append: '/' | relative_url }}{% endif %}">{{ t.nav.home }}</a></li>
-        <li><a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}">{{ t.nav.history }}</a></li>
         <li><a href="{% if lang == 'ru' %}/pages/proiskhozhdenie.html{% else %}/{{ lang }}/pages/proiskhozhdenie.html{% endif %}">{{ t.nav.origin }}</a></li>
         <li><a href="{% if lang == 'ru' %}/pages/byt-i-kultura.html{% else %}/{{ lang }}/pages/byt-i-kultura.html{% endif %}">{{ t.nav.culture }}</a></li>
         <li><a href="{% if lang == 'ru' %}/pages/hozyaystvo.html{% else %}/{{ lang }}/pages/hozyaystvo.html{% endif %}">{{ t.nav.economy }}</a></li>

@@ -61,22 +61,6 @@ lang: ru
     </header>
 
     <div class="card-grid stagger-children">
-      <!-- Featured Card: История -->
-      <a href="{% if lang == 'ru' %}/pages/istoriya.html{% else %}/{{ lang }}/pages/istoriya.html{% endif %}" class="card-moma card-feature span-12">
-        <div class="card-image">
-          <img src="{{ '/photos/yudakhin/borubash/yurta.jpg' | relative_url }}" 
-               alt="{{ t.cards.history_title }}" />
-        </div>
-        <div class="card-content">
-          <span class="card-tag">{{ t.cards.history_tag }}</span>
-          <h3 class="card-title">{{ t.cards.history_title }}</h3>
-          <p class="card-excerpt">
-            {{ t.cards.history_excerpt }}
-          </p>
-          <span class="card-link">{{ t.cards.history_link }}</span>
-        </div>
-      </a>
-
       <!-- Язык -->
       <a href="{% if lang == 'ru' %}/pages/yazyk.html{% else %}/{{ lang }}/pages/yazyk.html{% endif %}" class="card-moma span-6">
         <div class="card-content">
