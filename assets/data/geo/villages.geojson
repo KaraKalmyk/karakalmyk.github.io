@@ -151,22 +151,6 @@
             [78.33362307854446, 42.46623481362553]
         ]]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Karakol",
-        "name_ru": "Каракол",
-        "name_ky": "Каракол",
-        "type": "city",
-        "description_en": "Main city in the region",
-        "description_ru": "Главный город региона",
-        "description_ky": "Аймактын башкы шаары"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [78.3945, 42.4907]
-      }
     }
   ]
 }
